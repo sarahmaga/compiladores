@@ -28,6 +28,7 @@ Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma ver
     ```
 
 ## Uso
-
-python3 gen_cfg.py <caminho/arquivo.c>
+    ```bash
+    python3 gen_cfg.py <caminho/arquivo.c>
+    ```
 ---
