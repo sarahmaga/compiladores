@@ -11,8 +11,8 @@ Certifique-se de que você tem o Python instalado. Versão utilizada 3.10.6
 1. Clone o repositório (ou faça o download do código-fonte):
 
     ```bash
-    git clone https://github.com/seu_usuario/seu_repositorio.git
-    cd seu_repositorio
+    git clone https://github.com/sarahmaga/compiladores.git
+    cd compiladores
     ```
 
 2. Instale as dependências com o comando abaixo. Isso irá instalar as bibliotecas listadas no arquivo `requirements.txt`:
