@@ -1,0 +1,11 @@
+digraph "CFG for 'binsplit' function" {
+	label="CFG for 'binsplit' function";
+
+	Node0xf82ae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%3:\l  %4 = icmp eq i64* %1, %2\l  br i1 %4, label %21, label %5\l|{<s0>T|<s1>F}}"];
+	Node0xf82ae0:s0 -> Node0xf82b80;
+	Node0xf82ae0:s1 -> Node0xf82b30;
+	Node0xf82b30 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi i64* [ %19, %5 ], [ %2, %3 ]\l  %7 = phi i64* [ %18, %5 ], [ %1, %3 ]\l  %8 = ptrtoint i64* %6 to i64\l  %9 = ptrtoint i64* %7 to i64\l  %10 = sub i64 %8, %9\l  %11 = ashr exact i64 %10, 3\l  %12 = add nsw i64 %11, 1\l  %13 = ashr i64 %12, 1\l  %14 = getelementptr inbounds i64, i64* %7, i64 %13\l  %15 = load i64, i64* %14, align 8, !tbaa !5\l  %16 = icmp slt i64 %15, %0\l  %17 = getelementptr inbounds i64, i64* %14, i64 -1\l  %18 = select i1 %16, i64* %14, i64* %7\l  %19 = select i1 %16, i64* %6, i64* %17\l  %20 = icmp eq i64* %18, %19\l  br i1 %20, label %21, label %5, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0xf82b30:s0 -> Node0xf82b80;
+	Node0xf82b30:s1 -> Node0xf82b30;
+	Node0xf82b80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%21:\l21:                                               \l  %22 = phi i64* [ %1, %3 ], [ %18, %5 ]\l  %23 = load i64, i64* %22, align 8, !tbaa !5\l  %24 = icmp sgt i64 %23, %0\l  %25 = sext i1 %24 to i64\l  %26 = getelementptr i64, i64* %22, i64 %25\l  ret i64* %26\l}"];
+}

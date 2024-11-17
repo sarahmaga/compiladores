@@ -1,0 +1,18 @@
+digraph "CFG for 'fft_twiddle_gen1' function" {
+	label="CFG for 'fft_twiddle_gen1' function";
+
+	Node0xbc60a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%8:\l  %9 = icmp sgt i32 %3, 0\l  br i1 %9, label %10, label %51\l|{<s0>T|<s1>F}}"];
+	Node0xbc60a0:s0 -> Node0xbc60f0;
+	Node0xbc60a0:s1 -> Node0xbc6230;
+	Node0xbc60f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%10:\l10:                                               \l  %11 = sext i32 %4 to i64\l  br label %12\l}"];
+	Node0xbc60f0 -> Node0xbc6140;
+	Node0xbc6140 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%12:\l12:                                               \l  %13 = phi i32 [ 0, %10 ], [ %48, %46 ]\l  %14 = phi %struct.COMPLEX* [ %1, %10 ], [ %49, %46 ]\l  %15 = mul nsw i32 %13, %7\l  %16 = add nsw i32 %15, %6\l  br label %17\l}"];
+	Node0xbc6140 -> Node0xbc6190;
+	Node0xbc6190 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%17:\l17:                                               \l  %18 = phi i32 [ 0, %12 ], [ %42, %17 ]\l  %19 = phi i32 [ 0, %12 ], [ %43, %17 ]\l  %20 = phi %struct.COMPLEX* [ %0, %12 ], [ %44, %17 ]\l  %21 = phi \<2 x double\> [ zeroinitializer, %12 ], [ %38, %17 ]\l  %22 = sext i32 %18 to i64\l  %23 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %2, i64 %22,\l... i32 0\l  %24 = bitcast double* %23 to \<2 x double\>*\l  %25 = load \<2 x double\>, \<2 x double\>* %24, align 8, !tbaa !5\l  %26 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %20, i64 0,\l... i32 0\l  %27 = load double, double* %26, align 8, !tbaa !9\l  %28 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %20, i64 0,\l... i32 1\l  %29 = load double, double* %28, align 8, !tbaa !11\l  %30 = fneg double %29\l  %31 = insertelement \<2 x double\> poison, double %29, i64 0\l  %32 = insertelement \<2 x double\> %31, double %30, i64 1\l  %33 = fmul \<2 x double\> %25, %32\l  %34 = shufflevector \<2 x double\> %33, \<2 x double\> poison, \<2 x i32\> \<i32 1,\l... i32 0\>\l  %35 = insertelement \<2 x double\> poison, double %27, i64 0\l  %36 = shufflevector \<2 x double\> %35, \<2 x double\> poison, \<2 x i32\>\l... zeroinitializer\l  %37 = call \<2 x double\> @llvm.fmuladd.v2f64(\<2 x double\> %36, \<2 x double\>\l... %25, \<2 x double\> %34)\l  %38 = fadd \<2 x double\> %21, %37\l  %39 = add nsw i32 %16, %18\l  %40 = icmp sgt i32 %39, %5\l  %41 = select i1 %40, i32 %5, i32 0\l  %42 = sub nsw i32 %39, %41\l  %43 = add nuw nsw i32 %19, 1\l  %44 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %20, i64 %11\l  %45 = icmp eq i32 %43, %3\l  br i1 %45, label %46, label %17, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0xbc6190:s0 -> Node0xbc61e0;
+	Node0xbc6190:s1 -> Node0xbc6190;
+	Node0xbc61e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%46:\l46:                                               \l  %47 = bitcast %struct.COMPLEX* %14 to \<2 x double\>*\l  store \<2 x double\> %38, \<2 x double\>* %47, align 8, !tbaa !5\l  %48 = add nuw nsw i32 %13, 1\l  %49 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %14, i64 %11\l  %50 = icmp eq i32 %48, %3\l  br i1 %50, label %51, label %12, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0xbc61e0:s0 -> Node0xbc6230;
+	Node0xbc61e0:s1 -> Node0xbc6140;
+	Node0xbc6230 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%51:\l51:                                               \l  ret void\l}"];
+}

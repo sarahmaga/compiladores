@@ -1,0 +1,5 @@
+digraph "CFG for 'fft_base_2' function" {
+	label="CFG for 'fft_base_2' function";
+
+	Node0xbd29e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = bitcast %struct.COMPLEX* %0 to \<2 x double\>*\l  %4 = load \<2 x double\>, \<2 x double\>* %3, align 8, !tbaa !5\l  %5 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %0, i64 1, i32\l... 0\l  %6 = bitcast double* %5 to \<2 x double\>*\l  %7 = load \<2 x double\>, \<2 x double\>* %6, align 8, !tbaa !5\l  %8 = fadd \<2 x double\> %4, %7\l  %9 = bitcast %struct.COMPLEX* %1 to \<2 x double\>*\l  store \<2 x double\> %8, \<2 x double\>* %9, align 8, !tbaa !5\l  %10 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %1, i64 1,\l... i32 0\l  %11 = fsub \<2 x double\> %4, %7\l  %12 = bitcast double* %10 to \<2 x double\>*\l  store \<2 x double\> %11, \<2 x double\>* %12, align 8, !tbaa !5\l  ret void\l}"];
+}

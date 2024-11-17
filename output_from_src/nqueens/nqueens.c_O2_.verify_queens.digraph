@@ -1,0 +1,10 @@
+digraph "CFG for 'verify_queens' function" {
+	label="CFG for 'verify_queens' function";
+
+	Node0x23af8a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp ugt i32 %0, 14\l  br i1 %2, label %11, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x23af8a0:s0 -> Node0x23afb50;
+	Node0x23af8a0:s1 -> Node0x23afb00;
+	Node0x23afb00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%3:\l3:                                                \l  %4 = load i32, i32* @total_count, align 4, !tbaa !5\l  %5 = add nsw i32 %0, -1\l  %6 = sext i32 %5 to i64\l  %7 = getelementptr inbounds [14 x i32], [14 x i32]* @solutions, i64 0, i64 %6\l  %8 = load i32, i32* %7, align 4, !tbaa !5\l  %9 = icmp eq i32 %4, %8\l  %10 = select i1 %9, i32 1, i32 -1\l  br label %11\l}"];
+	Node0x23afb00 -> Node0x23afb50;
+	Node0x23afb50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = phi i32 [ 0, %1 ], [ %10, %3 ]\l  ret i32 %12\l}"];
+}

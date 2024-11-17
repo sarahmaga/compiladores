@@ -1,0 +1,10 @@
+digraph "CFG for 'fib' function" {
+	label="CFG for 'fib' function";
+
+	Node0x23df7d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp ult i64 %0, 2\l  br i1 %2, label %9, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x23df7d0:s0 -> Node0x23e6ea0;
+	Node0x23df7d0:s1 -> Node0x23e6e50;
+	Node0x23e6e50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%3:\l3:                                                \l  %4 = add i64 %0, -2\l  %5 = call i64 @fib(i64 noundef %4)\l  %6 = add i64 %0, -1\l  %7 = call i64 @fib(i64 noundef %6)\l  %8 = add i64 %7, %5\l  br label %9\l}"];
+	Node0x23e6e50 -> Node0x23e6ea0;
+	Node0x23e6ea0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l9:                                                \l  %10 = phi i64 [ %8, %3 ], [ 1, %1 ]\l  ret i64 %10\l}"];
+}

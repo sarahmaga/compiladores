@@ -1,0 +1,11 @@
+digraph "CFG for 'takFP' function" {
+	label="CFG for 'takFP' function";
+
+	Node0x1a47b10 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%3:\l  %4 = fcmp olt double %1, %0\l  br i1 %4, label %5, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1a47b10:s0 -> Node0x1a47b60;
+	Node0x1a47b10:s1 -> Node0x1a47bb0;
+	Node0x1a47b60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi double [ %14, %5 ], [ %2, %3 ]\l  %7 = phi double [ %12, %5 ], [ %1, %3 ]\l  %8 = phi double [ %10, %5 ], [ %0, %3 ]\l  %9 = fadd double %8, -1.000000e+00\l  %10 = tail call double @takFP(double noundef %9, double noundef %7, double\l... noundef %6)\l  %11 = fadd double %7, -1.000000e+00\l  %12 = tail call double @takFP(double noundef %11, double noundef %6, double\l... noundef %8)\l  %13 = fadd double %6, -1.000000e+00\l  %14 = tail call double @takFP(double noundef %13, double noundef %8, double\l... noundef %7)\l  %15 = fcmp olt double %12, %10\l  br i1 %15, label %5, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x1a47b60:s0 -> Node0x1a47b60;
+	Node0x1a47b60:s1 -> Node0x1a47bb0;
+	Node0x1a47bb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%16:\l16:                                               \l  %17 = phi double [ %2, %3 ], [ %14, %5 ]\l  ret double %17\l}"];
+}

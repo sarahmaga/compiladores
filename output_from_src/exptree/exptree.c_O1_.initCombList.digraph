@@ -1,0 +1,13 @@
+digraph "CFG for 'initCombList' function" {
+	label="CFG for 'initCombList' function";
+
+	Node0xd197f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%2:\l  %3 = icmp sgt i32 %1, 0\l  br i1 %3, label %4, label %11\l|{<s0>T|<s1>F}}"];
+	Node0xd197f0:s0 -> Node0xd19840;
+	Node0xd197f0:s1 -> Node0xd198e0;
+	Node0xd19840 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%4:\l4:                                                \l  %5 = zext i32 %1 to i64\l  br label %6\l}"];
+	Node0xd19840 -> Node0xd19890;
+	Node0xd19890 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l6:                                                \l  %7 = phi i64 [ 0, %4 ], [ %9, %6 ]\l  %8 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %7, i32 2\l  store i32 0, i32* %8, align 4, !tbaa !5\l  %9 = add nuw nsw i64 %7, 1\l  %10 = icmp eq i64 %9, %5\l  br i1 %10, label %11, label %6, !llvm.loop !10\l|{<s0>T|<s1>F}}"];
+	Node0xd19890:s0 -> Node0xd198e0;
+	Node0xd19890:s1 -> Node0xd19890;
+	Node0xd198e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%11:\l11:                                               \l  ret void\l}"];
+}

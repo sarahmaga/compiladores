@@ -1,0 +1,14 @@
+digraph "CFG for 'show_move' function" {
+	label="CFG for 'show_move' function";
+
+	Node0x1f03390 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%1:\l  %2 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !5\l  %3 = tail call i32 @putc(i32 noundef 40, %struct._IO_FILE* noundef %2) #11\l  %4 = load i32, i32* @ncol, align 4, !tbaa !9\l  %5 = icmp eq i32 %4, 0\l  br i1 %5, label %21, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x1f03390:s0 -> Node0x1f03690;
+	Node0x1f03390:s1 -> Node0x1f035f0;
+	Node0x1f035f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%6:\l6:                                                \l  %7 = phi i64 [ %8, %15 ], [ 0, %1 ]\l  %8 = add nuw i64 %7, 1\l  %9 = getelementptr inbounds i32, i32* %0, i64 %7\l  %10 = load i32, i32* %9, align 4, !tbaa !9\l  %11 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull\l... dereferenceable(1) getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0,\l... i64 0), i32 noundef %10) #11\l  %12 = load i32, i32* @ncol, align 4, !tbaa !9\l  %13 = zext i32 %12 to i64\l  %14 = icmp eq i64 %8, %13\l  br i1 %14, label %21, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1f035f0:s0 -> Node0x1f03690;
+	Node0x1f035f0:s1 -> Node0x1f03640;
+	Node0x1f03640 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%15:\l15:                                               \l  %16 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !5\l  %17 = tail call i32 @putc(i32 noundef 44, %struct._IO_FILE* noundef %16) #11\l  %18 = load i32, i32* @ncol, align 4, !tbaa !9\l  %19 = zext i32 %18 to i64\l  %20 = icmp eq i64 %8, %19\l  br i1 %20, label %21, label %6, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x1f03640:s0 -> Node0x1f03690;
+	Node0x1f03640:s1 -> Node0x1f035f0;
+	Node0x1f03690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%21:\l21:                                               \l  %22 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr\l... inbounds ([2 x i8], [2 x i8]* @str, i64 0, i64 0))\l  ret void\l}"];
+}

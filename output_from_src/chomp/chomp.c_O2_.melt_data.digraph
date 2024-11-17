@@ -1,0 +1,32 @@
+digraph "CFG for 'melt_data' function" {
+	label="CFG for 'melt_data' function";
+
+	Node0x17c5810 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%2:\l  %3 = load i32, i32* @ncol, align 4, !tbaa !5\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %40, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x17c5810:s0 -> Node0x17c5b90;
+	Node0x17c5810:s1 -> Node0x17c58c0;
+	Node0x17c58c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%5:\l5:                                                \l  %6 = sext i32 %3 to i64\l  %7 = and i32 %3, 1\l  %8 = icmp eq i32 %7, 0\l  br i1 %8, label %17, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x17c58c0:s0 -> Node0x17c59b0;
+	Node0x17c58c0:s1 -> Node0x17c5910;
+	Node0x17c5910 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%9:\l9:                                                \l  %10 = add nsw i64 %6, -1\l  %11 = getelementptr inbounds i32, i32* %0, i64 %10\l  %12 = load i32, i32* %11, align 4, !tbaa !5\l  %13 = getelementptr inbounds i32, i32* %1, i64 %10\l  %14 = load i32, i32* %13, align 4, !tbaa !5\l  %15 = icmp sgt i32 %12, %14\l  br i1 %15, label %16, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x17c5910:s0 -> Node0x17c5960;
+	Node0x17c5910:s1 -> Node0x17c59b0;
+	Node0x17c5960 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#abc8fd70",label="{%16:\l16:                                               \l  store i32 %14, i32* %11, align 4, !tbaa !5\l  br label %17\l}"];
+	Node0x17c5960 -> Node0x17c59b0;
+	Node0x17c59b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%17:\l17:                                               \l  %18 = phi i64 [ %6, %5 ], [ %10, %16 ], [ %10, %9 ]\l  %19 = icmp eq i32 %3, 1\l  br i1 %19, label %40, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x17c59b0:s0 -> Node0x17c5b90;
+	Node0x17c59b0:s1 -> Node0x17c5a00;
+	Node0x17c5a00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%20:\l20:                                               \l  %21 = phi i64 [ %30, %37 ], [ %18, %17 ]\l  %22 = add nsw i64 %21, -1\l  %23 = getelementptr inbounds i32, i32* %0, i64 %22\l  %24 = load i32, i32* %23, align 4, !tbaa !5\l  %25 = getelementptr inbounds i32, i32* %1, i64 %22\l  %26 = load i32, i32* %25, align 4, !tbaa !5\l  %27 = icmp sgt i32 %24, %26\l  br i1 %27, label %28, label %29\l|{<s0>T|<s1>F}}"];
+	Node0x17c5a00:s0 -> Node0x17c5a50;
+	Node0x17c5a00:s1 -> Node0x17c5aa0;
+	Node0x17c5a50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%28:\l28:                                               \l  store i32 %26, i32* %23, align 4, !tbaa !5\l  br label %29\l}"];
+	Node0x17c5a50 -> Node0x17c5aa0;
+	Node0x17c5aa0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%29:\l29:                                               \l  %30 = add nsw i64 %21, -2\l  %31 = getelementptr inbounds i32, i32* %0, i64 %30\l  %32 = load i32, i32* %31, align 4, !tbaa !5\l  %33 = getelementptr inbounds i32, i32* %1, i64 %30\l  %34 = load i32, i32* %33, align 4, !tbaa !5\l  %35 = icmp sgt i32 %32, %34\l  br i1 %35, label %36, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x17c5aa0:s0 -> Node0x17c5af0;
+	Node0x17c5aa0:s1 -> Node0x17c5b40;
+	Node0x17c5af0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dc5d4a70",label="{%36:\l36:                                               \l  store i32 %34, i32* %31, align 4, !tbaa !5\l  br label %37\l}"];
+	Node0x17c5af0 -> Node0x17c5b40;
+	Node0x17c5b40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%37:\l37:                                               \l  %38 = trunc i64 %30 to i32\l  %39 = icmp eq i32 %38, 0\l  br i1 %39, label %40, label %20, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x17c5b40:s0 -> Node0x17c5b90;
+	Node0x17c5b40:s1 -> Node0x17c5a00;
+	Node0x17c5b90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4c5ad70",label="{%40:\l40:                                               \l  ret void\l}"];
+}

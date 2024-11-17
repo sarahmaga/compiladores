@@ -1,0 +1,29 @@
+digraph "CFG for 'matrixmul' function" {
+	label="CFG for 'matrixmul' function";
+
+	Node0x1746e70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#81a4fb70",label="{%7:\l  %8 = icmp sgt i32 %0, 0\l  br i1 %8, label %9, label %70\l|{<s0>T|<s1>F}}"];
+	Node0x1746e70:s0 -> Node0x1751120;
+	Node0x1746e70:s1 -> Node0x17513a0;
+	Node0x1751120 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#7396f570",label="{%9:\l9:                                                \l  %10 = sext i32 %4 to i64\l  %11 = sext i32 %2 to i64\l  %12 = sext i32 %6 to i64\l  %13 = zext i32 %0 to i64\l  %14 = and i64 %13, 1\l  %15 = icmp eq i32 %0, 1\l  %16 = and i64 %13, 4294967294\l  %17 = icmp eq i64 %14, 0\l  br label %18\l}"];
+	Node0x1751120 -> Node0x1751170;
+	Node0x1751170 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %9 ], [ %68, %67 ]\l  %20 = mul nsw i64 %19, %11\l  %21 = mul nsw i64 %19, %12\l  br label %22\l}"];
+	Node0x1751170 -> Node0x17511c0;
+	Node0x17511c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%22:\l22:                                               \l  %23 = phi i64 [ %65, %61 ], [ 0, %18 ]\l  br i1 %15, label %48, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x17511c0:s0 -> Node0x1751260;
+	Node0x17511c0:s1 -> Node0x1751210;
+	Node0x1751210 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%24:\l24:                                               \l  %25 = phi i64 [ %45, %24 ], [ 0, %22 ]\l  %26 = phi double [ %44, %24 ], [ 0.000000e+00, %22 ]\l  %27 = phi i64 [ %46, %24 ], [ 0, %22 ]\l  %28 = add nsw i64 %25, %20\l  %29 = getelementptr inbounds double, double* %1, i64 %28\l  %30 = load double, double* %29, align 8, !tbaa !5\l  %31 = mul nsw i64 %25, %10\l  %32 = add nsw i64 %31, %23\l  %33 = getelementptr inbounds double, double* %3, i64 %32\l  %34 = load double, double* %33, align 8, !tbaa !5\l  %35 = tail call double @llvm.fmuladd.f64(double %30, double %34, double %26)\l  %36 = or i64 %25, 1\l  %37 = add nsw i64 %36, %20\l  %38 = getelementptr inbounds double, double* %1, i64 %37\l  %39 = load double, double* %38, align 8, !tbaa !5\l  %40 = mul nsw i64 %36, %10\l  %41 = add nsw i64 %40, %23\l  %42 = getelementptr inbounds double, double* %3, i64 %41\l  %43 = load double, double* %42, align 8, !tbaa !5\l  %44 = tail call double @llvm.fmuladd.f64(double %39, double %43, double %35)\l  %45 = add nuw nsw i64 %25, 2\l  %46 = add i64 %27, 2\l  %47 = icmp eq i64 %46, %16\l  br i1 %47, label %48, label %24, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x1751210:s0 -> Node0x1751260;
+	Node0x1751210:s1 -> Node0x1751210;
+	Node0x1751260 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%48:\l48:                                               \l  %49 = phi double [ undef, %22 ], [ %44, %24 ]\l  %50 = phi i64 [ 0, %22 ], [ %45, %24 ]\l  %51 = phi double [ 0.000000e+00, %22 ], [ %44, %24 ]\l  br i1 %17, label %61, label %52\l|{<s0>T|<s1>F}}"];
+	Node0x1751260:s0 -> Node0x1751300;
+	Node0x1751260:s1 -> Node0x17512b0;
+	Node0x17512b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%52:\l52:                                               \l  %53 = add nsw i64 %50, %20\l  %54 = getelementptr inbounds double, double* %1, i64 %53\l  %55 = load double, double* %54, align 8, !tbaa !5\l  %56 = mul nsw i64 %50, %10\l  %57 = add nsw i64 %56, %23\l  %58 = getelementptr inbounds double, double* %3, i64 %57\l  %59 = load double, double* %58, align 8, !tbaa !5\l  %60 = tail call double @llvm.fmuladd.f64(double %55, double %59, double %51)\l  br label %61\l}"];
+	Node0x17512b0 -> Node0x1751300;
+	Node0x1751300 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3947570",label="{%61:\l61:                                               \l  %62 = phi double [ %49, %48 ], [ %60, %52 ]\l  %63 = add nsw i64 %23, %21\l  %64 = getelementptr inbounds double, double* %5, i64 %63\l  store double %62, double* %64, align 8, !tbaa !5\l  %65 = add nuw nsw i64 %23, 1\l  %66 = icmp eq i64 %65, %13\l  br i1 %66, label %67, label %22, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x1751300:s0 -> Node0x1751350;
+	Node0x1751300:s1 -> Node0x17511c0;
+	Node0x1751350 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%67:\l67:                                               \l  %68 = add nuw nsw i64 %19, 1\l  %69 = icmp eq i64 %68, %13\l  br i1 %69, label %70, label %18, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x1751350:s0 -> Node0x17513a0;
+	Node0x1751350:s1 -> Node0x1751170;
+	Node0x17513a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#81a4fb70",label="{%70:\l70:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,18 @@
+digraph "CFG for 'init_matrix' function" {
+	label="CFG for 'init_matrix' function";
+
+	Node0xab7d10 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%3:\l  %4 = icmp sgt i32 %0, 0\l  br i1 %4, label %5, label %24\l|{<s0>T|<s1>F}}"];
+	Node0xab7d10:s0 -> Node0xab7da0;
+	Node0xab7d10:s1 -> Node0xab7ee0;
+	Node0xab7da0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%5:\l5:                                                \l  %6 = sext i32 %2 to i64\l  %7 = zext i32 %0 to i64\l  %8 = zext i32 %0 to i64\l  br label %9\l}"];
+	Node0xab7da0 -> Node0xab7df0;
+	Node0xab7df0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%9:\l9:                                                \l  %10 = phi i64 [ 0, %5 ], [ %22, %21 ]\l  %11 = mul nsw i64 %10, %6\l  br label %12\l}"];
+	Node0xab7df0 -> Node0xab7e40;
+	Node0xab7e40 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%12:\l12:                                               \l  %13 = phi i64 [ 0, %9 ], [ %19, %12 ]\l  %14 = call i32 @rand() #12\l  %15 = sitofp i32 %14 to double\l  %16 = fdiv double %15, 0x41DFFFFFFFC00000\l  %17 = add nsw i64 %13, %11\l  %18 = getelementptr inbounds double, double* %1, i64 %17\l  store double %16, double* %18, align 8, !tbaa !5\l  %19 = add nuw nsw i64 %13, 1\l  %20 = icmp eq i64 %19, %8\l  br i1 %20, label %21, label %12, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0xab7e40:s0 -> Node0xab7e90;
+	Node0xab7e40:s1 -> Node0xab7e40;
+	Node0xab7e90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%21:\l21:                                               \l  %22 = add nuw nsw i64 %10, 1\l  %23 = icmp eq i64 %22, %7\l  br i1 %23, label %24, label %9, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0xab7e90:s0 -> Node0xab7ee0;
+	Node0xab7e90:s1 -> Node0xab7df0;
+	Node0xab7ee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%24:\l24:                                               \l  ret void\l}"];
+}

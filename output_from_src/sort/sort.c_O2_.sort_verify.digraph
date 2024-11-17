@@ -1,0 +1,24 @@
+digraph "CFG for 'sort_verify' function" {
+	label="CFG for 'sort_verify' function";
+
+	Node0xf96440 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%1:\l  %2 = icmp eq i64 %0, 0\l  br i1 %2, label %56, label %3\l|{<s0>T|<s1>F}}"];
+	Node0xf96440:s0 -> Node0xf96670;
+	Node0xf96440:s1 -> Node0xf96490;
+	Node0xf96490 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%3:\l3:                                                \l  %4 = load i64*, i64** @array, align 8, !tbaa !5\l  %5 = add i64 %0, -1\l  %6 = and i64 %0, 3\l  %7 = icmp ult i64 %5, 3\l  br i1 %7, label %36, label %8\l|{<s0>T|<s1>F}}"];
+	Node0xf96490:s0 -> Node0xf96580;
+	Node0xf96490:s1 -> Node0xf964e0;
+	Node0xf964e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b5cdfa70",label="{%8:\l8:                                                \l  %9 = and i64 %0, -4\l  br label %10\l}"];
+	Node0xf964e0 -> Node0xf96530;
+	Node0xf96530 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%10:\l10:                                               \l  %11 = phi i64 [ 0, %8 ], [ %33, %10 ]\l  %12 = phi i32 [ 1, %8 ], [ %32, %10 ]\l  %13 = phi i64 [ 0, %8 ], [ %34, %10 ]\l  %14 = getelementptr inbounds i64, i64* %4, i64 %11\l  %15 = load i64, i64* %14, align 8, !tbaa !9\l  %16 = icmp eq i64 %15, %11\l  %17 = or i64 %11, 1\l  %18 = getelementptr inbounds i64, i64* %4, i64 %17\l  %19 = load i64, i64* %18, align 8, !tbaa !9\l  %20 = icmp eq i64 %19, %17\l  %21 = or i64 %11, 2\l  %22 = getelementptr inbounds i64, i64* %4, i64 %21\l  %23 = load i64, i64* %22, align 8, !tbaa !9\l  %24 = icmp eq i64 %23, %21\l  %25 = or i64 %11, 3\l  %26 = getelementptr inbounds i64, i64* %4, i64 %25\l  %27 = load i64, i64* %26, align 8, !tbaa !9\l  %28 = icmp eq i64 %27, %25\l  %29 = select i1 %28, i1 %24, i1 false\l  %30 = select i1 %29, i1 %20, i1 false\l  %31 = select i1 %30, i1 %16, i1 false\l  %32 = select i1 %31, i32 %12, i32 0\l  %33 = add nuw nsw i64 %11, 4\l  %34 = add i64 %13, 4\l  %35 = icmp eq i64 %34, %9\l  br i1 %35, label %36, label %10, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0xf96530:s0 -> Node0xf96580;
+	Node0xf96530:s1 -> Node0xf96530;
+	Node0xf96580 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%36:\l36:                                               \l  %37 = phi i32 [ undef, %3 ], [ %32, %10 ]\l  %38 = phi i64 [ 0, %3 ], [ %33, %10 ]\l  %39 = phi i32 [ 1, %3 ], [ %32, %10 ]\l  %40 = icmp eq i64 %6, 0\l  br i1 %40, label %52, label %41\l|{<s0>T|<s1>F}}"];
+	Node0xf96580:s0 -> Node0xf96620;
+	Node0xf96580:s1 -> Node0xf965d0;
+	Node0xf965d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%41:\l41:                                               \l  %42 = phi i64 [ %49, %41 ], [ %38, %36 ]\l  %43 = phi i32 [ %48, %41 ], [ %39, %36 ]\l  %44 = phi i64 [ %50, %41 ], [ 0, %36 ]\l  %45 = getelementptr inbounds i64, i64* %4, i64 %42\l  %46 = load i64, i64* %45, align 8, !tbaa !9\l  %47 = icmp eq i64 %46, %42\l  %48 = select i1 %47, i32 %43, i32 0\l  %49 = add nuw nsw i64 %42, 1\l  %50 = add i64 %44, 1\l  %51 = icmp eq i64 %50, %6\l  br i1 %51, label %52, label %41, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0xf965d0:s0 -> Node0xf96620;
+	Node0xf965d0:s1 -> Node0xf965d0;
+	Node0xf96620 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%52:\l52:                                               \l  %53 = phi i32 [ %37, %36 ], [ %48, %41 ]\l  %54 = icmp eq i32 %53, 0\l  %55 = select i1 %54, i32 -1, i32 1\l  br label %56\l}"];
+	Node0xf96620 -> Node0xf96670;
+	Node0xf96670 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%56:\l56:                                               \l  %57 = phi i32 [ 1, %1 ], [ %55, %52 ]\l  ret i32 %57\l}"];
+}

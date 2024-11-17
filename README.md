@@ -29,10 +29,5 @@ Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma ver
 
 ## Uso
 
-Descreva aqui o uso do projeto e como executar o código.
-
+python3 gen_cfg.py <caminho/arquivo.c>
 ---
-
-## Suporte
-
-Se precisar de ajuda, entre em contato com [seu_email@dominio.com](mailto:seu_email@dominio.com).

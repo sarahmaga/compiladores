@@ -1,0 +1,41 @@
+digraph "CFG for 'get_winning_move' function" {
+	label="CFG for 'get_winning_move' function";
+
+	Node0x180b180 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%1:\l  br label %2\l}"];
+	Node0x180b180 -> Node0x180b250;
+	Node0x180b250 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f5a08170",label="{%2:\l2:                                                \l  %3 = phi %struct._play* [ %0, %1 ], [ %5, %2 ]\l  %4 = getelementptr inbounds %struct._play, %struct._play* %3, i64 0, i32 3\l  %5 = load %struct._play*, %struct._play** %4, align 8, !tbaa !5\l  %6 = icmp eq %struct._play* %5, null\l  br i1 %6, label %7, label %2, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x180b250:s0 -> Node0x180b2a0;
+	Node0x180b250:s1 -> Node0x180b250;
+	Node0x180b2a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%7:\l7:                                                \l  %8 = getelementptr inbounds %struct._play, %struct._play* %3, i64 0, i32 2\l  %9 = load %struct._list*, %struct._list** %8, align 8, !tbaa !13\l  %10 = icmp eq %struct._list* %9, null\l  br i1 %10, label %62, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x180b2a0:s0 -> Node0x180b660;
+	Node0x180b2a0:s1 -> Node0x180b2f0;
+	Node0x180b2f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%11:\l11:                                               \l  %12 = load i32, i32* @ncol, align 4\l  %13 = sext i32 %12 to i64\l  br label %14\l}"];
+	Node0x180b2f0 -> Node0x180b340;
+	Node0x180b340 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%14:\l14:                                               \l  %15 = phi %struct._list* [ %17, %41 ], [ %9, %11 ]\l  %16 = getelementptr inbounds %struct._list, %struct._list* %15, i64 0, i32 1\l  %17 = load %struct._list*, %struct._list** %16, align 8, !tbaa !14\l  %18 = icmp eq %struct._list* %17, null\l  %19 = getelementptr inbounds %struct._list, %struct._list* %15, i64 0, i32 0\l  %20 = load i32*, i32** %19, align 8, !tbaa !16\l  br i1 %18, label %45, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x180b340:s0 -> Node0x180b570;
+	Node0x180b340:s1 -> Node0x180b390;
+	Node0x180b390 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b59970",label="{%21:\l21:                                               \l  %22 = phi %struct._play** [ %40, %39 ], [ @game_tree, %14 ]\l  %23 = load %struct._play*, %struct._play** %22, align 8, !tbaa !17\l  %24 = getelementptr inbounds %struct._play, %struct._play* %23, i64 0, i32 1\l  %25 = load i32*, i32** %24, align 8, !tbaa !18\l  br label %26\l}"];
+	Node0x180b390 -> Node0x180b3e0;
+	Node0x180b3e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%26:\l26:                                               \l  %27 = phi i64 [ %28, %30 ], [ %13, %21 ]\l  %28 = add nsw i64 %27, -1\l  %29 = icmp eq i64 %27, 0\l  br i1 %29, label %41, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x180b3e0:s0 -> Node0x180b520;
+	Node0x180b3e0:s1 -> Node0x180b430;
+	Node0x180b430 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%30:\l30:                                               \l  %31 = getelementptr inbounds i32, i32* %25, i64 %28\l  %32 = load i32, i32* %31, align 4, !tbaa !19\l  %33 = getelementptr inbounds i32, i32* %20, i64 %28\l  %34 = load i32, i32* %33, align 4, !tbaa !19\l  %35 = icmp eq i32 %32, %34\l  br i1 %35, label %26, label %36, !llvm.loop !20\l|{<s0>T|<s1>F}}"];
+	Node0x180b430:s0 -> Node0x180b3e0;
+	Node0x180b430:s1 -> Node0x180b480;
+	Node0x180b480 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%36:\l36:                                               \l  %37 = trunc i64 %27 to i32\l  %38 = icmp sgt i32 %37, 0\l  br i1 %38, label %39, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x180b480:s0 -> Node0x180b4d0;
+	Node0x180b480:s1 -> Node0x180b520;
+	Node0x180b4d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f1ccb870",label="{%39:\l39:                                               \l  %40 = getelementptr inbounds %struct._play, %struct._play* %23, i64 0, i32 3\l  br label %21, !llvm.loop !21\l}"];
+	Node0x180b4d0 -> Node0x180b390;
+	Node0x180b520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%41:\l41:                                               \l  %42 = getelementptr inbounds %struct._play, %struct._play* %23, i64 0, i32 0\l  %43 = load i32, i32* %42, align 8, !tbaa !22\l  %44 = icmp eq i32 %43, 0\l  br i1 %44, label %45, label %14, !llvm.loop !23\l|{<s0>T|<s1>F}}"];
+	Node0x180b520:s0 -> Node0x180b570;
+	Node0x180b520:s1 -> Node0x180b340;
+	Node0x180b570 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%45:\l45:                                               \l  %46 = shl nsw i64 %13, 2\l  %47 = tail call noalias i8* @malloc(i64 noundef %46) #11\l  %48 = icmp eq i32 %12, 0\l  br i1 %48, label %60, label %49\l|{<s0>T|<s1>F}}"];
+	Node0x180b570:s0 -> Node0x180b610;
+	Node0x180b570:s1 -> Node0x180b5c0;
+	Node0x180b5c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#8caffe70",label="{%49:\l49:                                               \l  %50 = add i32 %12, -1\l  %51 = sext i32 %50 to i64\l  %52 = zext i32 %50 to i64\l  %53 = sub nsw i64 %51, %52\l  %54 = shl nsw i64 %53, 2\l  %55 = getelementptr i8, i8* %47, i64 %54\l  %56 = getelementptr i32, i32* %20, i64 %53\l  %57 = bitcast i32* %56 to i8*\l  %58 = zext i32 %12 to i64\l  %59 = shl nuw nsw i64 %58, 2\l  tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %55, i8* align 4 %57,\l... i64 %59, i1 false) #11, !tbaa !19\l  br label %60\l}"];
+	Node0x180b5c0 -> Node0x180b610;
+	Node0x180b610 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%60:\l60:                                               \l  %61 = bitcast i8* %47 to i32*\l  br label %62\l}"];
+	Node0x180b610 -> Node0x180b660;
+	Node0x180b660 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%62:\l62:                                               \l  %63 = phi i32* [ %61, %60 ], [ null, %7 ]\l  ret i32* %63\l}"];
+}

@@ -1,0 +1,11 @@
+digraph "CFG for 'init' function" {
+	label="CFG for 'init' function";
+
+	Node0xbb5070 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%1:\l  %2 = getelementptr inbounds %struct.cells, %struct.cells* %0, i64 0, i32 2\l  %3 = load %struct.cells*, %struct.cells** %2, align 8, !tbaa !5\l  %4 = icmp eq %struct.cells* %3, null\l  br i1 %4, label %14, label %5\l|{<s0>T|<s1>F}}"];
+	Node0xbb5070:s0 -> Node0xbb5110;
+	Node0xbb5070:s1 -> Node0xbb50c0;
+	Node0xbb50c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi %struct.cells* [ %12, %5 ], [ %3, %1 ]\l  %7 = phi %struct.cells* [ %6, %5 ], [ %0, %1 ]\l  %8 = getelementptr inbounds %struct.cells, %struct.cells* %7, i64 0, i32 0\l  %9 = load i32, i32* %8, align 8, !tbaa !11\l  %10 = getelementptr inbounds %struct.cells, %struct.cells* %7, i64 0, i32 1\l  store i32 %9, i32* %10, align 4, !tbaa !12\l  %11 = getelementptr inbounds %struct.cells, %struct.cells* %6, i64 0, i32 2\l  %12 = load %struct.cells*, %struct.cells** %11, align 8, !tbaa !5\l  %13 = icmp eq %struct.cells* %12, null\l  br i1 %13, label %14, label %5, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0xbb50c0:s0 -> Node0xbb5110;
+	Node0xbb50c0:s1 -> Node0xbb50c0;
+	Node0xbb5110 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%14:\l14:                                               \l  ret void\l}"];
+}

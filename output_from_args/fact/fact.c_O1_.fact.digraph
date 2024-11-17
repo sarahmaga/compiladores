@@ -1,0 +1,11 @@
+digraph "CFG for 'fact' function" {
+	label="CFG for 'fact' function";
+
+	Node0x16e6ed0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%1:\l  %2 = icmp sgt i32 %0, 1\l  br i1 %2, label %3, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x16e6ed0:s0 -> Node0x16ecc90;
+	Node0x16e6ed0:s1 -> Node0x16ecce0;
+	Node0x16ecc90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l3:                                                \l  %4 = phi i32 [ %6, %3 ], [ 1, %1 ]\l  %5 = phi i32 [ %7, %3 ], [ %0, %1 ]\l  %6 = mul nsw i32 %4, %5\l  %7 = add nsw i32 %5, -1\l  %8 = icmp sgt i32 %5, 2\l  br i1 %8, label %3, label %9, !llvm.loop !5\l|{<s0>T|<s1>F}}"];
+	Node0x16ecc90:s0 -> Node0x16ecc90;
+	Node0x16ecc90:s1 -> Node0x16ecce0;
+	Node0x16ecce0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%9:\l9:                                                \l  %10 = phi i32 [ 1, %1 ], [ %6, %3 ]\l  ret i32 %10\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'search' function" {
+	label="CFG for 'search' function";
+
+	Node0x1e667c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  store i1 false, i1* @stopSearch, align 4\l  store i32 0, i32* @nbNodes, align 4, !tbaa !5\l  tail call void @doSearch()\l  ret void\l}"];
+}

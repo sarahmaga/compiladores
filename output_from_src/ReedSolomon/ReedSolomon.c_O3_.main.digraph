@@ -1,0 +1,21 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x1dcd7a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%0:\l  %1 = alloca [204 x i8], align 16\l  %2 = alloca [204 x i8], align 16\l  %3 = getelementptr inbounds [204 x i8], [204 x i8]* %1, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 204, i8* nonnull %3) #7\l  %4 = getelementptr inbounds [204 x i8], [204 x i8]* %2, i64 0, i64 0\l  call void @llvm.lifetime.start.p0i8(i64 204, i8* nonnull %4) #7\l  br label %5\l}"];
+	Node0x1dcd7a0 -> Node0x1dce550;
+	Node0x1dce550 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%5:\l5:                                                \l  %6 = phi i32 [ 0, %0 ], [ %29, %28 ]\l  br label %7\l}"];
+	Node0x1dce550 -> Node0x1dce5a0;
+	Node0x1dce5a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%7:\l7:                                                \l  %8 = phi i64 [ 0, %5 ], [ %12, %7 ]\l  %9 = tail call i64 @random() #7\l  %10 = trunc i64 %9 to i8\l  %11 = getelementptr inbounds [204 x i8], [204 x i8]* %1, i64 0, i64 %8\l  store i8 %10, i8* %11, align 1, !tbaa !5\l  %12 = add nuw nsw i64 %8, 1\l  %13 = icmp eq i64 %12, 188\l  br i1 %13, label %14, label %7, !llvm.loop !8\l|{<s0>T|<s1>F}}"];
+	Node0x1dce5a0:s0 -> Node0x1dce5f0;
+	Node0x1dce5a0:s1 -> Node0x1dce5a0;
+	Node0x1dce5f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%14:\l14:                                               \l  call void @rsenc_204(i8* noundef nonnull %4, i8* noundef nonnull %3)\l  %15 = tail call i64 @random() #7\l  %16 = trunc i64 %15 to i32\l  %17 = and i32 %16, 127\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %28, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x1dce5f0:s0 -> Node0x1dce690;
+	Node0x1dce5f0:s1 -> Node0x1dce640;
+	Node0x1dce640 [shape=record,color="#b70d28ff", style=filled, fillcolor="#ca3b3770",label="{%19:\l19:                                               \l  %20 = phi i32 [ %26, %19 ], [ 0, %14 ]\l  %21 = tail call i64 @random() #7\l  %22 = trunc i64 %21 to i8\l  %23 = tail call i64 @random() #7\l  %24 = srem i64 %23, 204\l  %25 = getelementptr inbounds [204 x i8], [204 x i8]* %2, i64 0, i64 %24\l  store i8 %22, i8* %25, align 1, !tbaa !5\l  %26 = add nuw nsw i32 %20, 1\l  %27 = icmp eq i32 %26, %17\l  br i1 %27, label %28, label %19, !llvm.loop !10\l|{<s0>T|<s1>F}}"];
+	Node0x1dce640:s0 -> Node0x1dce690;
+	Node0x1dce640:s1 -> Node0x1dce640;
+	Node0x1dce690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%28:\l28:                                               \l  call void @rsdec_204(i8* noundef nonnull %3, i8* noundef nonnull %4)\l  %29 = add nuw nsw i32 %6, 1\l  %30 = icmp eq i32 %29, 150000\l  br i1 %30, label %31, label %5, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x1dce690:s0 -> Node0x1dce6e0;
+	Node0x1dce690:s1 -> Node0x1dce550;
+	Node0x1dce6e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%31:\l31:                                               \l  call void @llvm.lifetime.end.p0i8(i64 204, i8* nonnull %4) #7\l  call void @llvm.lifetime.end.p0i8(i64 204, i8* nonnull %3) #7\l  ret i32 0\l}"];
+}

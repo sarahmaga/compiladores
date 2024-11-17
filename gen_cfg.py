@@ -65,7 +65,6 @@ def create_cfgs_from_directory(directory):
                     file_path = os.path.join(root, f)
                     generate_cfgs_for_optimization_levels(file_path, 'output_from_' + os.path.basename(directory))
                     print(file_path)
-            # break
     except FileNotFoundError:
         print(f'O diretório {directory} não foi encontrado')
         return []
@@ -82,8 +81,10 @@ def main():
         print("Arquivo de entrada inválido. Forneça um arquivo .c.")
         sys.exit(1)
 
-    # generate_cfgs_for_optimization_levels(source_file, 'output_from_args')
-    # create_cfgs_from_directory('src/singlesource')
-    # create_cfgs_from_directory('src')
+    generate_cfgs_for_optimization_levels(source_file, 'output_from_args')
+    create_cfgs_from_directory('src/singlesource')
+    create_cfgs_from_directory('src')
+
+
 if __name__ == "__main__":
     main()

@@ -1,0 +1,13 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x248eb00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%2:\l  %3 = getelementptr inbounds i8*, i8** %1, i64 1\l  %4 = load i8*, i8** %3, align 8, !tbaa !5\l  %5 = call i64 @strtol(i8* nocapture noundef nonnull %4, i8** noundef null,\l... i32 noundef 10) #16\l  %6 = trunc i64 %5 to i32\l  %7 = shl i64 %5, 32\l  %8 = ashr exact i64 %7, 28\l  %9 = call noalias i8* @malloc(i64 noundef %8) #16\l  %10 = bitcast i8* %9 to %struct.COMPLEX*\l  %11 = call noalias i8* @malloc(i64 noundef %8) #16\l  %12 = icmp sgt i32 %6, 0\l  br i1 %12, label %13, label %21\l|{<s0>T|<s1>F}}"];
+	Node0x248eb00:s0 -> Node0x248eb50;
+	Node0x248eb00:s1 -> Node0x248ebf0;
+	Node0x248eb50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%13:\l13:                                               \l  %14 = and i64 %5, 4294967295\l  br label %15\l}"];
+	Node0x248eb50 -> Node0x248eba0;
+	Node0x248eba0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  %16 = phi i64 [ 0, %13 ], [ %19, %15 ]\l  %17 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %10, i64 %16,\l... i32 0\l  store double 1.000000e+00, double* %17, align 8, !tbaa !9\l  %18 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %10, i64 %16,\l... i32 1\l  store double 1.000000e+00, double* %18, align 8, !tbaa !12\l  %19 = add nuw nsw i64 %16, 1\l  %20 = icmp eq i64 %19, %14\l  br i1 %20, label %21, label %15, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x248eba0:s0 -> Node0x248ebf0;
+	Node0x248eba0:s1 -> Node0x248eba0;
+	Node0x248ebf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%21:\l21:                                               \l  %22 = bitcast i8* %11 to %struct.COMPLEX*\l  call void @fft(i32 noundef %6, %struct.COMPLEX* noundef %10,\l... %struct.COMPLEX* noundef %22)\l  ret i32 0\l}"];
+}
