@@ -21,14 +21,15 @@ Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma ver
     pip install -r requirements.txt
     ```
 
-3. Verifique se as bibliotecas foram instaladas corretamente executando o seguinte comando:
+<!-- 3. Verifique se as bibliotecas foram instaladas corretamente executando o seguinte comando:
 
     ```bash
     python -c "import pycparser, pydot; print('Bibliotecas instaladas com sucesso!')"
-    ```
+    ``` -->
 
 ## Uso
+
     ```bash
-    python3 "gen_cfg.py <caminho/arquivo.c>"
+    python "gen_cfg.py <caminho/arquivo.c>"
     ```
 ---
