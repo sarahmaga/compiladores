@@ -29,7 +29,8 @@ Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma ver
 
 ## Uso
 
+1. Para gerar os dados para um arquivo e específico e para os demais:
     ```bash
-    pip install -r requirements.txt
+    python3 gen_cfg.py caminho/arquivo.c
     ```
 ---
