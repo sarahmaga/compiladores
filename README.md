@@ -30,6 +30,6 @@ Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma ver
 ## Uso
 
     ```bash
-    python "gen_cfg.py <caminho/arquivo.c>"
+    python3 gen_cfg.py caminho/arquivo.c
     ```
 ---
