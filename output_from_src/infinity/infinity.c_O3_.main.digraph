@@ -1,8 +1,0 @@
-digraph "CFG for 'main' function" {
-	label="CFG for 'main' function";
-
-	Node0x663cc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#7ea1fa70",label="{%0:\l  br label %1\l}"];
-	Node0x663cc0 -> Node0x663d10;
-	Node0x663d10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l1:                                                \l  br label %1\l}"];
-	Node0x663d10 -> Node0x663d10;
-}

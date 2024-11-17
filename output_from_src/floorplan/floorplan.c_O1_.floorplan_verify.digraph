@@ -1,5 +1,0 @@
-digraph "CFG for 'floorplan_verify' function" {
-	label="CFG for 'floorplan_verify' function";
-
-	Node0x1fd3a20 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%0:\l  %1 = load i32, i32* @solution, align 4, !tbaa !5\l  %2 = icmp eq i32 %1, -1\l  %3 = load i32, i32* @MIN_AREA, align 4\l  %4 = icmp eq i32 %3, %1\l  %5 = select i1 %4, i32 1, i32 -1\l  %6 = select i1 %2, i32 0, i32 %5\l  ret i32 %6\l}"];
-}
