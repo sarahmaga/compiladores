@@ -1,10 +1,10 @@
-# Projeto com Pycparser e Pydot
+# Projeto de geração de grafos de fluxo de controle
 
-Este projeto utiliza as bibliotecas `pycparser` e `pydot` para análise de código C e manipulação de grafos.
+Este projeto tem como propósito gerar grafos de fluxo utilizando llvm/clang e graphviz.
 
 ## Pré-requisitos
 
-Certifique-se de que você tem o Python instalado. Recomendamos utilizar uma versão mais recente do Python 3.x.
+Certifique-se de que você tem o Python instalado. Versão utilizada 3.10.6
 
 ## Instalação
 
