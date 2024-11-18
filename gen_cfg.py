@@ -82,8 +82,8 @@ def main():
         sys.exit(1)
 
     generate_cfgs_for_optimization_levels(source_file, 'output_from_args')
-    # create_cfgs_from_directory('src/singlesource')
-    # create_cfgs_from_directory('src')
+    create_cfgs_from_directory('src/singlesource')
+    create_cfgs_from_directory('src')
 
 
 if __name__ == "__main__":
