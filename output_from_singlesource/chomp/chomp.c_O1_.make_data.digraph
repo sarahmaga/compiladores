@@ -1,0 +1,23 @@
+digraph "CFG for 'make_data' function" {
+	label="CFG for 'make_data' function";
+
+	Node0x875000 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%2:\l  %3 = load i32, i32* @ncol, align 4, !tbaa !5\l  %4 = sext i32 %3 to i64\l  %5 = shl nsw i64 %4, 2\l  %6 = call noalias i8* @malloc(i64 noundef %5) #11\l  %7 = bitcast i8* %6 to i32*\l  %8 = icmp eq i32 %1, 0\l  br i1 %8, label %14, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x875000:s0 -> Node0x8750f0;
+	Node0x875000:s1 -> Node0x875050;
+	Node0x875050 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c1d4f470",label="{%9:\l9:                                                \l  %10 = load i32, i32* @nrow, align 4, !tbaa !5\l  %11 = zext i32 %1 to i64\l  br label %20\l}"];
+	Node0x875050 -> Node0x875190;
+	Node0x8750a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c1d4f470",label="{%12:\l12:                                               \l  %13 = trunc i64 %23 to i32\l  br label %14\l}"];
+	Node0x8750a0 -> Node0x8750f0;
+	Node0x8750f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%14:\l14:                                               \l  %15 = phi i32 [ 0, %2 ], [ %13, %12 ]\l  %16 = icmp eq i32 %15, %3\l  br i1 %16, label %30, label %17\l|{<s0>T|<s1>F}}"];
+	Node0x8750f0:s0 -> Node0x875230;
+	Node0x8750f0:s1 -> Node0x875140;
+	Node0x875140 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b5cdfa70",label="{%17:\l17:                                               \l  %18 = zext i32 %15 to i64\l  %19 = zext i32 %3 to i64\l  br label %25\l}"];
+	Node0x875140 -> Node0x8751e0;
+	Node0x875190 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%20:\l20:                                               \l  %21 = phi i64 [ 0, %9 ], [ %23, %20 ]\l  %22 = getelementptr inbounds i32, i32* %7, i64 %21\l  store i32 %10, i32* %22, align 4, !tbaa !5\l  %23 = add nuw nsw i64 %21, 1\l  %24 = icmp eq i64 %23, %11\l  br i1 %24, label %12, label %20, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x875190:s0 -> Node0x8750a0;
+	Node0x875190:s1 -> Node0x875190;
+	Node0x8751e0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%25:\l25:                                               \l  %26 = phi i64 [ %18, %17 ], [ %28, %25 ]\l  %27 = getelementptr inbounds i32, i32* %7, i64 %26\l  store i32 %0, i32* %27, align 4, !tbaa !5\l  %28 = add nuw nsw i64 %26, 1\l  %29 = icmp eq i64 %28, %19\l  br i1 %29, label %30, label %25, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x8751e0:s0 -> Node0x875230;
+	Node0x8751e0:s1 -> Node0x8751e0;
+	Node0x875230 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%30:\l30:                                               \l  ret i32* %7\l}"];
+}

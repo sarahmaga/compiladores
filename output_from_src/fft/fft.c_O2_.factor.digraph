@@ -1,0 +1,37 @@
+digraph "CFG for 'factor' function" {
+	label="CFG for 'factor' function";
+
+	Node0xeabc90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp slt i32 %0, 2\l  br i1 %2, label %25, label %3\l|{<s0>T|<s1>F}}"];
+	Node0xeabc90:s0 -> Node0xeacde0;
+	Node0xeabc90:s1 -> Node0xeacb60;
+	Node0xeacb60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d8564670",label="{%3:\l3:                                                \l  switch i32 %0, label %4 [\l    i32 4096, label %25\l    i32 2048, label %25\l    i32 1024, label %25\l    i32 256, label %25\l    i32 128, label %25\l    i32 64, label %25\l  ]\l|{<s0>def|<s1>4096|<s2>2048|<s3>1024|<s4>256|<s5>128|<s6>64}}"];
+	Node0xeacb60:s0 -> Node0xeacbb0;
+	Node0xeacb60:s1 -> Node0xeacde0;
+	Node0xeacb60:s2 -> Node0xeacde0;
+	Node0xeacb60:s3 -> Node0xeacde0;
+	Node0xeacb60:s4 -> Node0xeacde0;
+	Node0xeacb60:s5 -> Node0xeacde0;
+	Node0xeacb60:s6 -> Node0xeacde0;
+	Node0xeacbb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%4:\l4:                                                \l  %5 = and i32 %0, 15\l  %6 = icmp eq i32 %5, 0\l  br i1 %6, label %25, label %7\l|{<s0>T|<s1>F}}"];
+	Node0xeacbb0:s0 -> Node0xeacde0;
+	Node0xeacbb0:s1 -> Node0xeacc00;
+	Node0xeacc00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%7:\l7:                                                \l  %8 = and i32 %0, 7\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %25, label %10\l|{<s0>T|<s1>F}}"];
+	Node0xeacc00:s0 -> Node0xeacde0;
+	Node0xeacc00:s1 -> Node0xeacc50;
+	Node0xeacc50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d6dce470",label="{%10:\l10:                                               \l  %11 = and i32 %0, 3\l  %12 = icmp eq i32 %11, 0\l  br i1 %12, label %25, label %13\l|{<s0>T|<s1>F}}"];
+	Node0xeacc50:s0 -> Node0xeacde0;
+	Node0xeacc50:s1 -> Node0xeacca0;
+	Node0xeacca0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c1d4f470",label="{%13:\l13:                                               \l  %14 = and i32 %0, 1\l  %15 = icmp eq i32 %14, 0\l  br i1 %15, label %25, label %16\l|{<s0>T|<s1>F}}"];
+	Node0xeacca0:s0 -> Node0xeacde0;
+	Node0xeacca0:s1 -> Node0xeaccf0;
+	Node0xeaccf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#a1c0ff70",label="{%16:\l16:                                               \l  %17 = icmp ugt i32 %0, 3\l  br i1 %17, label %18, label %25\l|{<s0>T|<s1>F}}"];
+	Node0xeaccf0:s0 -> Node0xeacd40;
+	Node0xeaccf0:s1 -> Node0xeacde0;
+	Node0xeacd40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%18:\l18:                                               \l  %19 = phi i32 [ %23, %22 ], [ 3, %16 ]\l  %20 = srem i32 %0, %19\l  %21 = icmp eq i32 %20, 0\l  br i1 %21, label %25, label %22\l|{<s0>T|<s1>F}}"];
+	Node0xeacd40:s0 -> Node0xeacde0;
+	Node0xeacd40:s1 -> Node0xeacd90;
+	Node0xeacd90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f2cab570",label="{%22:\l22:                                               \l  %23 = add nuw nsw i32 %19, 2\l  %24 = icmp slt i32 %23, %0\l  br i1 %24, label %18, label %25, !llvm.loop !5\l|{<s0>T|<s1>F}}"];
+	Node0xeacd90:s0 -> Node0xeacd40;
+	Node0xeacd90:s1 -> Node0xeacde0;
+	Node0xeacde0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%25:\l25:                                               \l  %26 = phi i32 [ 1, %1 ], [ 8, %3 ], [ 8, %3 ], [ 8, %3 ], [ 8, %3 ], [ 8, %3\l... ], [ 8, %3 ], [ 16, %4 ], [ 8, %7 ], [ 4, %10 ], [ 2, %13 ], [ %0, %16 ], [\l... %19, %18 ], [ %0, %22 ]\l  ret i32 %26\l}"];
+}

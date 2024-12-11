@@ -1,0 +1,17 @@
+digraph "CFG for 'ack' function" {
+	label="CFG for 'ack' function";
+
+	Node0x16f12b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%2:\l  %3 = icmp eq i32 %0, 0\l  br i1 %3, label %4, label %6\l|{<s0>T|<s1>F}}"];
+	Node0x16f12b0:s0 -> Node0x16f5bb0;
+	Node0x16f12b0:s1 -> Node0x16f5c00;
+	Node0x16f5bb0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%4:\l4:                                                \l  %5 = add nsw i32 %1, 1\l  br label %15\l}"];
+	Node0x16f5bb0 -> Node0x16f5cf0;
+	Node0x16f5c00 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%6:\l6:                                                \l  %7 = add nsw i32 %0, -1\l  %8 = icmp eq i32 %1, 0\l  br i1 %8, label %12, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x16f5c00:s0 -> Node0x16f5ca0;
+	Node0x16f5c00:s1 -> Node0x16f5c50;
+	Node0x16f5c50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%9:\l9:                                                \l  %10 = add nsw i32 %1, -1\l  %11 = call i32 @ack(i32 noundef %0, i32 noundef %10)\l  br label %12\l}"];
+	Node0x16f5c50 -> Node0x16f5ca0;
+	Node0x16f5ca0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%12:\l12:                                               \l  %13 = phi i32 [ %11, %9 ], [ 1, %6 ]\l  %14 = call i32 @ack(i32 noundef %7, i32 noundef %13)\l  br label %15\l}"];
+	Node0x16f5ca0 -> Node0x16f5cf0;
+	Node0x16f5cf0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%15:\l15:                                               \l  %16 = phi i32 [ %5, %4 ], [ %14, %12 ]\l  ret i32 %16\l}"];
+}

@@ -1,0 +1,18 @@
+digraph "CFG for 'melt_data' function" {
+	label="CFG for 'melt_data' function";
+
+	Node0x867c50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%2:\l  %3 = load i32, i32* @ncol, align 4, !tbaa !5\l  %4 = icmp eq i32 %3, 0\l  br i1 %4, label %19, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x867c50:s0 -> Node0x867de0;
+	Node0x867c50:s1 -> Node0x867ca0;
+	Node0x867ca0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%5:\l5:                                                \l  %6 = sext i32 %3 to i64\l  br label %7\l}"];
+	Node0x867ca0 -> Node0x867cf0;
+	Node0x867cf0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%7:\l7:                                                \l  %8 = phi i64 [ %6, %5 ], [ %9, %16 ]\l  %9 = add nsw i64 %8, -1\l  %10 = getelementptr inbounds i32, i32* %0, i64 %9\l  %11 = load i32, i32* %10, align 4, !tbaa !5\l  %12 = getelementptr inbounds i32, i32* %1, i64 %9\l  %13 = load i32, i32* %12, align 4, !tbaa !5\l  %14 = icmp sgt i32 %11, %13\l  br i1 %14, label %15, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x867cf0:s0 -> Node0x867d40;
+	Node0x867cf0:s1 -> Node0x867d90;
+	Node0x867d40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#de614d70",label="{%15:\l15:                                               \l  store i32 %13, i32* %10, align 4, !tbaa !5\l  br label %16\l}"];
+	Node0x867d40 -> Node0x867d90;
+	Node0x867d90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%16:\l16:                                               \l  %17 = trunc i64 %9 to i32\l  %18 = icmp eq i32 %17, 0\l  br i1 %18, label %19, label %7, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x867d90:s0 -> Node0x867de0;
+	Node0x867d90:s1 -> Node0x867cf0;
+	Node0x867de0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cedaeb70",label="{%19:\l19:                                               \l  ret void\l}"];
+}

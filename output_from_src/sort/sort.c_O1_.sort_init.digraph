@@ -1,0 +1,23 @@
+digraph "CFG for 'sort_init' function" {
+	label="CFG for 'sort_init' function";
+
+	Node0xe6d000 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%1:\l  %2 = shl i64 %0, 3\l  %3 = call noalias i8* @malloc(i64 noundef %2) #9\l  store i8* %3, i8** bitcast (i64** @array to i8**), align 8, !tbaa !5\l  %4 = call noalias i8* @malloc(i64 noundef %2) #9\l  store i8* %4, i8** bitcast (i64** @tmp to i8**), align 8, !tbaa !5\l  store i64 1, i64* @rand_nxt, align 8, !tbaa !9\l  %5 = icmp eq i64 %0, 0\l  br i1 %5, label %29, label %6\l|{<s0>T|<s1>F}}"];
+	Node0xe6d000:s0 -> Node0xe6d230;
+	Node0xe6d000:s1 -> Node0xe6d050;
+	Node0xe6d050 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%6:\l6:                                                \l  %7 = load i64*, i64** @array, align 8, !tbaa !5\l  br label %8\l}"];
+	Node0xe6d050 -> Node0xe6d0a0;
+	Node0xe6d0a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%8:\l8:                                                \l  %9 = phi i64 [ 0, %6 ], [ %11, %8 ]\l  %10 = getelementptr inbounds i64, i64* %7, i64 %9\l  store i64 %9, i64* %10, align 8, !tbaa !9\l  %11 = add nuw i64 %9, 1\l  %12 = icmp eq i64 %11, %0\l  br i1 %12, label %13, label %8, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0xe6d0a0:s0 -> Node0xe6d0f0;
+	Node0xe6d0a0:s1 -> Node0xe6d0a0;
+	Node0xe6d0f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%13:\l13:                                               \l  br i1 %5, label %29, label %14\l|{<s0>T|<s1>F}}"];
+	Node0xe6d0f0:s0 -> Node0xe6d230;
+	Node0xe6d0f0:s1 -> Node0xe6d140;
+	Node0xe6d140 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%14:\l14:                                               \l  %15 = load i64*, i64** @array, align 8, !tbaa !5\l  br label %16\l}"];
+	Node0xe6d140 -> Node0xe6d190;
+	Node0xe6d190 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d24b4070",label="{%16:\l16:                                               \l  %17 = phi i64 [ 0, %14 ], [ %26, %16 ]\l  %18 = phi i64 [ 1, %14 ], [ %20, %16 ]\l  %19 = mul i64 %18, 1103515245\l  %20 = add i64 %19, 12345\l  %21 = urem i64 %20, %0\l  %22 = getelementptr inbounds i64, i64* %15, i64 %17\l  %23 = load i64, i64* %22, align 8, !tbaa !9\l  %24 = getelementptr inbounds i64, i64* %15, i64 %21\l  %25 = load i64, i64* %24, align 8, !tbaa !9\l  store i64 %25, i64* %22, align 8, !tbaa !9\l  store i64 %23, i64* %24, align 8, !tbaa !9\l  %26 = add nuw i64 %17, 1\l  %27 = icmp eq i64 %26, %0\l  br i1 %27, label %28, label %16, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0xe6d190:s0 -> Node0xe6d1e0;
+	Node0xe6d190:s1 -> Node0xe6d190;
+	Node0xe6d1e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%28:\l28:                                               \l  store i64 %20, i64* @rand_nxt, align 8, !tbaa !9\l  br label %29\l}"];
+	Node0xe6d1e0 -> Node0xe6d230;
+	Node0xe6d230 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%29:\l29:                                               \l  ret void\l}"];
+}

@@ -1,0 +1,41 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x1d32830 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%2:\l  %3 = getelementptr inbounds i8*, i8** %1, i64 1\l  %4 = load i8*, i8** %3, align 8, !tbaa !5\l  %5 = tail call i64 @strtol(i8* nocapture noundef nonnull %4, i8** noundef\l... null, i32 noundef 10) #9\l  %6 = shl i64 %5, 32\l  %7 = ashr exact i64 %6, 32\l  %8 = ashr exact i64 %6, 29\l  %9 = tail call noalias i8* @malloc(i64 noundef %8) #9\l  store i8* %9, i8** bitcast (i64** @array to i8**), align 8, !tbaa !5\l  %10 = tail call noalias i8* @malloc(i64 noundef %8) #9\l  store i8* %10, i8** bitcast (i64** @tmp to i8**), align 8, !tbaa !5\l  store i64 1, i64* @rand_nxt, align 8, !tbaa !9\l  %11 = icmp eq i64 %6, 0\l  %12 = bitcast i8* %9 to i64*\l  br i1 %11, label %81, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1d32830:s0 -> Node0x1d40630;
+	Node0x1d32830:s1 -> Node0x1d401a0;
+	Node0x1d401a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%13:\l13:                                               \l  %14 = icmp ult i64 %6, 17179869184\l  br i1 %14, label %31, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1d401a0:s0 -> Node0x1d40360;
+	Node0x1d401a0:s1 -> Node0x1d40270;
+	Node0x1d40270 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%15:\l15:                                               \l  %16 = and i64 %5, 3\l  %17 = sub nsw i64 %7, %16\l  br label %18\l}"];
+	Node0x1d40270 -> Node0x1d402c0;
+	Node0x1d402c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d24b4070",label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %15 ], [ %26, %18 ]\l  %20 = phi \<2 x i64\> [ \<i64 0, i64 1\>, %15 ], [ %27, %18 ]\l  %21 = add \<2 x i64\> %20, \<i64 2, i64 2\>\l  %22 = getelementptr inbounds i64, i64* %12, i64 %19\l  %23 = bitcast i64* %22 to \<2 x i64\>*\l  store \<2 x i64\> %20, \<2 x i64\>* %23, align 8, !tbaa !9\l  %24 = getelementptr inbounds i64, i64* %22, i64 2\l  %25 = bitcast i64* %24 to \<2 x i64\>*\l  store \<2 x i64\> %21, \<2 x i64\>* %25, align 8, !tbaa !9\l  %26 = add nuw i64 %19, 4\l  %27 = add \<2 x i64\> %20, \<i64 4, i64 4\>\l  %28 = icmp eq i64 %26, %17\l  br i1 %28, label %29, label %18, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x1d402c0:s0 -> Node0x1d40310;
+	Node0x1d402c0:s1 -> Node0x1d402c0;
+	Node0x1d40310 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%29:\l29:                                               \l  %30 = icmp eq i64 %16, 0\l  br i1 %30, label %38, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1d40310:s0 -> Node0x1d40400;
+	Node0x1d40310:s1 -> Node0x1d40360;
+	Node0x1d40360 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%31:\l31:                                               \l  %32 = phi i64 [ 0, %13 ], [ %17, %29 ]\l  br label %33\l}"];
+	Node0x1d40360 -> Node0x1d403b0;
+	Node0x1d403b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%33:\l33:                                               \l  %34 = phi i64 [ %36, %33 ], [ %32, %31 ]\l  %35 = getelementptr inbounds i64, i64* %12, i64 %34\l  store i64 %34, i64* %35, align 8, !tbaa !9\l  %36 = add nuw i64 %34, 1\l  %37 = icmp eq i64 %36, %7\l  br i1 %37, label %38, label %33, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0x1d403b0:s0 -> Node0x1d40400;
+	Node0x1d403b0:s1 -> Node0x1d403b0;
+	Node0x1d40400 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%38:\l38:                                               \l  %39 = and i64 %5, 1\l  %40 = icmp eq i64 %6, 4294967296\l  br i1 %40, label %68, label %41\l|{<s0>T|<s1>F}}"];
+	Node0x1d40400:s0 -> Node0x1d40540;
+	Node0x1d40400:s1 -> Node0x1d40450;
+	Node0x1d40450 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%41:\l41:                                               \l  %42 = sub nsw i64 %7, %39\l  br label %43\l}"];
+	Node0x1d40450 -> Node0x1d404a0;
+	Node0x1d404a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#d24b4070",label="{%43:\l43:                                               \l  %44 = phi i64 [ 0, %41 ], [ %62, %43 ]\l  %45 = phi i64 [ 1, %41 ], [ %56, %43 ]\l  %46 = phi i64 [ 0, %41 ], [ %63, %43 ]\l  %47 = mul i64 %45, 1103515245\l  %48 = add i64 %47, 12345\l  %49 = urem i64 %48, %7\l  %50 = getelementptr inbounds i64, i64* %12, i64 %44\l  %51 = load i64, i64* %50, align 8, !tbaa !9\l  %52 = getelementptr inbounds i64, i64* %12, i64 %49\l  %53 = load i64, i64* %52, align 8, !tbaa !9\l  store i64 %53, i64* %50, align 8, !tbaa !9\l  store i64 %51, i64* %52, align 8, !tbaa !9\l  %54 = or i64 %44, 1\l  %55 = mul i64 %48, 1103515245\l  %56 = add i64 %55, 12345\l  %57 = urem i64 %56, %7\l  %58 = getelementptr inbounds i64, i64* %12, i64 %54\l  %59 = load i64, i64* %58, align 8, !tbaa !9\l  %60 = getelementptr inbounds i64, i64* %12, i64 %57\l  %61 = load i64, i64* %60, align 8, !tbaa !9\l  store i64 %61, i64* %58, align 8, !tbaa !9\l  store i64 %59, i64* %60, align 8, !tbaa !9\l  %62 = add nuw i64 %44, 2\l  %63 = add i64 %46, 2\l  %64 = icmp eq i64 %63, %42\l  br i1 %64, label %65, label %43, !llvm.loop !16\l|{<s0>T|<s1>F}}"];
+	Node0x1d404a0:s0 -> Node0x1d404f0;
+	Node0x1d404a0:s1 -> Node0x1d404a0;
+	Node0x1d404f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%65:\l65:                                               \l  %66 = mul i64 %56, 1103515245\l  %67 = add i64 %66, 12345\l  br label %68\l}"];
+	Node0x1d404f0 -> Node0x1d40540;
+	Node0x1d40540 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%68:\l68:                                               \l  %69 = phi i64 [ undef, %38 ], [ %56, %65 ]\l  %70 = phi i64 [ 0, %38 ], [ %62, %65 ]\l  %71 = phi i64 [ 1103527590, %38 ], [ %67, %65 ]\l  %72 = icmp eq i64 %39, 0\l  br i1 %72, label %79, label %73\l|{<s0>T|<s1>F}}"];
+	Node0x1d40540:s0 -> Node0x1d405e0;
+	Node0x1d40540:s1 -> Node0x1d40590;
+	Node0x1d40590 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#aec9fc70",label="{%73:\l73:                                               \l  %74 = urem i64 %71, %7\l  %75 = getelementptr inbounds i64, i64* %12, i64 %70\l  %76 = load i64, i64* %75, align 8, !tbaa !9\l  %77 = getelementptr inbounds i64, i64* %12, i64 %74\l  %78 = load i64, i64* %77, align 8, !tbaa !9\l  store i64 %78, i64* %75, align 8, !tbaa !9\l  store i64 %76, i64* %77, align 8, !tbaa !9\l  br label %79\l}"];
+	Node0x1d40590 -> Node0x1d405e0;
+	Node0x1d405e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%79:\l79:                                               \l  %80 = phi i64 [ %69, %68 ], [ %71, %73 ]\l  store i64 %80, i64* @rand_nxt, align 8, !tbaa !9\l  br label %81\l}"];
+	Node0x1d405e0 -> Node0x1d40630;
+	Node0x1d40630 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5d8d170",label="{%81:\l81:                                               \l  %82 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull\l... dereferenceable(1) getelementptr inbounds ([40 x i8], [40 x i8]* @.str, i64\l... 0, i64 0), i64 noundef %7) #9\l  %83 = load i64*, i64** @array, align 8, !tbaa !5\l  %84 = load i64*, i64** @tmp, align 8, !tbaa !5\l  tail call void @cilksort(i64* noundef %83, i64* noundef %84, i64 noundef %7)\l... #9\l  %85 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr\l... inbounds ([12 x i8], [12 x i8]* @str, i64 0, i64 0)) #9\l  ret i32 0\l}"];
+}

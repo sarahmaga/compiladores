@@ -1,0 +1,10 @@
+digraph "CFG for 'get_real_move' function" {
+	label="CFG for 'get_real_move' function";
+
+	Node0x1a7c080 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%4:\l  br label %5\l}"];
+	Node0x1a7c080 -> Node0x1a7c0d0;
+	Node0x1a7c0d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi i64 [ %13, %5 ], [ 0, %4 ]\l  %7 = trunc i64 %6 to i32\l  store i32 %7, i32* %3, align 4, !tbaa !5\l  %8 = getelementptr inbounds i32, i32* %0, i64 %6\l  %9 = load i32, i32* %8, align 4, !tbaa !5\l  %10 = getelementptr inbounds i32, i32* %1, i64 %6\l  %11 = load i32, i32* %10, align 4, !tbaa !5\l  %12 = icmp eq i32 %9, %11\l  %13 = add nuw i64 %6, 1\l  br i1 %12, label %5, label %14, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x1a7c0d0:s0 -> Node0x1a7c0d0;
+	Node0x1a7c0d0:s1 -> Node0x1a7c120;
+	Node0x1a7c120 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%14:\l14:                                               \l  store i32 %9, i32* %2, align 4, !tbaa !5\l  ret void\l}"];
+}

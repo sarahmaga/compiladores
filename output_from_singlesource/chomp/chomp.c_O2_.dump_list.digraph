@@ -1,0 +1,10 @@
+digraph "CFG for 'dump_list' function" {
+	label="CFG for 'dump_list' function";
+
+	Node0x1ff48a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = icmp eq %struct._list* %0, null\l  br i1 %2, label %3, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x1ff48a0:s0 -> Node0x1ff48f0;
+	Node0x1ff48a0:s1 -> Node0x1ff4940;
+	Node0x1ff48f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l3:                                                \l  ret void\l}"];
+	Node0x1ff4940 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%4:\l4:                                                \l  %5 = getelementptr inbounds %struct._list, %struct._list* %0, i64 0, i32 1\l  %6 = load %struct._list*, %struct._list** %5, align 8, !tbaa !5\l  tail call void @dump_list(%struct._list* noundef %6)\l  %7 = bitcast %struct._list* %0 to i8**\l  %8 = load i8*, i8** %7, align 8, !tbaa !10\l  tail call void @free(i8* noundef %8) #11\l  %9 = bitcast %struct._list* %0 to i8*\l  tail call void @free(i8* noundef %9) #11\l  br label %3\l}"];
+	Node0x1ff4940 -> Node0x1ff48f0;
+}

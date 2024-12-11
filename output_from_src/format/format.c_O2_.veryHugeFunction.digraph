@@ -1,0 +1,14 @@
+digraph "CFG for 'veryHugeFunction' function" {
+	label="CFG for 'veryHugeFunction' function";
+
+	Node0x1ebbf40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%11:\l  %12 = icmp eq i32 %0, 0\l  %13 = icmp eq i32 %3, 10\l  %14 = or i1 %12, %13\l  br i1 %14, label %31, label %15\l|{<s0>T|<s1>F}}"];
+	Node0x1ebbf40:s0 -> Node0x1ec1af0;
+	Node0x1ebbf40:s1 -> Node0x1ec1a50;
+	Node0x1ec1a50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c7d7f070",label="{%15:\l15:                                               \l  %16 = add i32 %2, %1\l  %17 = add i32 %16, %0\l  %18 = add i32 %17, %3\l  %19 = add i32 %18, %5\l  %20 = add i32 %19, %6\l  %21 = add i32 %20, %7\l  %22 = add i32 %21, %8\l  %23 = getelementptr inbounds i32, i32* %9, i64 1\l  %24 = load i32, i32* %23, align 4, !tbaa !5\l  %25 = icmp eq i8 %10, 115\l  br i1 %25, label %26, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1ec1a50:s0 -> Node0x1ec1aa0;
+	Node0x1ec1a50:s1 -> Node0x1ec1af0;
+	Node0x1ec1aa0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%26:\l26:                                               \l  %27 = phi i32 [ %30, %26 ], [ %4, %15 ]\l  %28 = add i32 %22, %27\l  %29 = icmp eq i32 %28, %24\l  %30 = add nsw i32 %16, %27\l  br i1 %29, label %26, label %31\l|{<s0>T|<s1>F}}"];
+	Node0x1ec1aa0:s0 -> Node0x1ec1aa0;
+	Node0x1ec1aa0:s1 -> Node0x1ec1af0;
+	Node0x1ec1af0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%31:\l31:                                               \l  ret void\l}"];
+}

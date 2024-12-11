@@ -1,0 +1,23 @@
+digraph "CFG for 'compare_matrix' function" {
+	label="CFG for 'compare_matrix' function";
+
+	Node0x100bfd0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%5:\l  %6 = icmp sgt i32 %0, 0\l  br i1 %6, label %7, label %38\l|{<s0>T|<s1>F}}"];
+	Node0x100bfd0:s0 -> Node0x100c020;
+	Node0x100bfd0:s1 -> Node0x100c200;
+	Node0x100c020 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%7:\l7:                                                \l  %8 = sext i32 %2 to i64\l  %9 = sext i32 %4 to i64\l  %10 = zext i32 %0 to i64\l  %11 = zext i32 %0 to i64\l  br label %12\l}"];
+	Node0x100c020 -> Node0x100c070;
+	Node0x100c070 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%12:\l12:                                               \l  %13 = phi i64 [ 0, %7 ], [ %36, %35 ]\l  %14 = mul nsw i64 %13, %8\l  %15 = mul nsw i64 %13, %9\l  br label %18\l}"];
+	Node0x100c070 -> Node0x100c110;
+	Node0x100c0c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%16:\l16:                                               \l  %17 = icmp eq i64 %32, %11\l  br i1 %17, label %35, label %18, !llvm.loop !5\l|{<s0>T|<s1>F}}"];
+	Node0x100c0c0:s0 -> Node0x100c1b0;
+	Node0x100c0c0:s1 -> Node0x100c110;
+	Node0x100c110 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%18:\l18:                                               \l  %19 = phi i64 [ 0, %12 ], [ %32, %16 ]\l  %20 = add nsw i64 %19, %14\l  %21 = getelementptr inbounds double, double* %1, i64 %20\l  %22 = load double, double* %21, align 8, !tbaa !8\l  %23 = add nsw i64 %19, %15\l  %24 = getelementptr inbounds double, double* %3, i64 %23\l  %25 = load double, double* %24, align 8, !tbaa !8\l  %26 = fsub double %22, %25\l  %27 = fcmp olt double %26, 0.000000e+00\l  %28 = fneg double %26\l  %29 = select i1 %27, double %28, double %26\l  %30 = fdiv double %29, %22\l  %31 = fcmp ogt double %30, 0x3EB0C6F7A0B5ED8D\l  %32 = add nuw nsw i64 %19, 1\l  br i1 %31, label %33, label %16\l|{<s0>T|<s1>F}}"];
+	Node0x100c110:s0 -> Node0x100c160;
+	Node0x100c110:s1 -> Node0x100c0c0;
+	Node0x100c160 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%33:\l33:                                               \l  %34 = call i32 @puts(i8* nonnull dereferenceable(1) getelementptr inbounds\l... ([24 x i8], [24 x i8]* @str, i64 0, i64 0))\l  br label %38\l}"];
+	Node0x100c160 -> Node0x100c200;
+	Node0x100c1b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%35:\l35:                                               \l  %36 = add nuw nsw i64 %13, 1\l  %37 = icmp eq i64 %36, %10\l  br i1 %37, label %38, label %12, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x100c1b0:s0 -> Node0x100c200;
+	Node0x100c1b0:s1 -> Node0x100c070;
+	Node0x100c200 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%38:\l38:                                               \l  %39 = phi i32 [ -1, %33 ], [ 1, %5 ], [ 1, %35 ]\l  ret i32 %39\l}"];
+}

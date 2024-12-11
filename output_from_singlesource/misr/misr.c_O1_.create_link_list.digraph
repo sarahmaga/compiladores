@@ -1,0 +1,11 @@
+digraph "CFG for 'create_link_list' function" {
+	label="CFG for 'create_link_list' function";
+
+	Node0x2277150 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%1:\l  %2 = bitcast %struct.cells* %0 to i8*\l  call void @llvm.memset.p0i8.i64(i8* noundef nonnull align 8\l... dereferenceable(16) %2, i8 0, i64 16, i1 false)\l  %3 = load i32, i32* @reg_len, align 4, !tbaa !5\l  %4 = icmp slt i32 %3, 0\l  br i1 %4, label %17, label %5\l|{<s0>T|<s1>F}}"];
+	Node0x2277150:s0 -> Node0x2278420;
+	Node0x2277150:s1 -> Node0x22783d0;
+	Node0x22783d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi %struct.cells* [ %9, %5 ], [ %0, %1 ]\l  %7 = phi i32 [ %15, %5 ], [ 0, %1 ]\l  %8 = call noalias dereferenceable_or_null(16) i8* @malloc(i64 noundef 16) #13\l  %9 = bitcast i8* %8 to %struct.cells*\l  %10 = getelementptr inbounds %struct.cells, %struct.cells* %9, i64 0, i32 0\l  store i32 1, i32* %10, align 8, !tbaa !9\l  %11 = getelementptr inbounds %struct.cells, %struct.cells* %9, i64 0, i32 1\l  store i32 1, i32* %11, align 4, !tbaa !12\l  %12 = getelementptr inbounds %struct.cells, %struct.cells* %9, i64 0, i32 2\l  store %struct.cells* null, %struct.cells** %12, align 8, !tbaa !13\l  %13 = getelementptr inbounds %struct.cells, %struct.cells* %6, i64 0, i32 2\l  %14 = bitcast %struct.cells** %13 to i8**\l  store i8* %8, i8** %14, align 8, !tbaa !13\l  %15 = add nuw i32 %7, 1\l  %16 = icmp eq i32 %7, %3\l  br i1 %16, label %17, label %5, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0x22783d0:s0 -> Node0x2278420;
+	Node0x22783d0:s1 -> Node0x22783d0;
+	Node0x2278420 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%17:\l17:                                               \l  ret void\l}"];
+}

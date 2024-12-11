@@ -1,0 +1,20 @@
+digraph "CFG for 'get_value' function" {
+	label="CFG for 'get_value' function";
+
+	Node0x1be58c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%1:\l  %2 = load i32, i32* @ncol, align 4, !tbaa !5\l  %3 = sext i32 %2 to i64\l  br label %4\l}"];
+	Node0x1be58c0 -> Node0x1be5950;
+	Node0x1be5950 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%4:\l4:                                                \l  %5 = phi %struct._play** [ @game_tree, %1 ], [ %23, %22 ]\l  %6 = load %struct._play*, %struct._play** %5, align 8, !tbaa !9\l  %7 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 1\l  %8 = load i32*, i32** %7, align 8, !tbaa !11\l  br label %9\l}"];
+	Node0x1be5950 -> Node0x1be59a0;
+	Node0x1be59a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l9:                                                \l  %10 = phi i64 [ %11, %13 ], [ %3, %4 ]\l  %11 = add nsw i64 %10, -1\l  %12 = icmp eq i64 %10, 0\l  br i1 %12, label %24, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1be59a0:s0 -> Node0x1be5ae0;
+	Node0x1be59a0:s1 -> Node0x1be59f0;
+	Node0x1be59f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%13:\l13:                                               \l  %14 = getelementptr inbounds i32, i32* %8, i64 %11\l  %15 = load i32, i32* %14, align 4, !tbaa !5\l  %16 = getelementptr inbounds i32, i32* %0, i64 %11\l  %17 = load i32, i32* %16, align 4, !tbaa !5\l  %18 = icmp eq i32 %15, %17\l  br i1 %18, label %9, label %19, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x1be59f0:s0 -> Node0x1be59a0;
+	Node0x1be59f0:s1 -> Node0x1be5a40;
+	Node0x1be5a40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%19:\l19:                                               \l  %20 = trunc i64 %10 to i32\l  %21 = icmp sgt i32 %20, 0\l  br i1 %21, label %22, label %24\l|{<s0>T|<s1>F}}"];
+	Node0x1be5a40:s0 -> Node0x1be5a90;
+	Node0x1be5a40:s1 -> Node0x1be5ae0;
+	Node0x1be5a90 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%22:\l22:                                               \l  %23 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 3\l  br label %4, !llvm.loop !15\l}"];
+	Node0x1be5a90 -> Node0x1be5950;
+	Node0x1be5ae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%24:\l24:                                               \l  %25 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 0\l  %26 = load i32, i32* %25, align 8, !tbaa !16\l  ret i32 %26\l}"];
+}

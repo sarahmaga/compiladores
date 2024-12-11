@@ -1,0 +1,39 @@
+digraph "CFG for 'show_play' function" {
+	label="CFG for 'show_play' function";
+
+	Node0x870690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#7a9df870",label="{%1:\l  %2 = icmp eq %struct._play* %0, null\l  br i1 %2, label %67, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x870690:s0 -> Node0x870ac0;
+	Node0x870690:s1 -> Node0x870750;
+	Node0x870750 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%3:\l3:                                                \l  %4 = phi %struct._play* [ %65, %63 ], [ %0, %1 ]\l  %5 = call i32 @puts(i8* nonnull dereferenceable(1) getelementptr inbounds\l... ([12 x i8], [12 x i8]* @str.18, i64 0, i64 0))\l  %6 = getelementptr inbounds %struct._play, %struct._play* %4, i64 0, i32 1\l  %7 = load i32*, i32** %6, align 8, !tbaa !5\l  %8 = load i32, i32* @ncol, align 4, !tbaa !11\l  %9 = icmp eq i32 %8, 0\l  br i1 %9, label %26, label %10\l|{<s0>T|<s1>F}}"];
+	Node0x870750:s0 -> Node0x870890;
+	Node0x870750:s1 -> Node0x8707a0;
+	Node0x8707a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{%10:\l10:                                               \l  %11 = phi i64 [ %12, %22 ], [ 0, %3 ]\l  %12 = add nuw i64 %11, 1\l  %13 = getelementptr inbounds i32, i32* %7, i64 %11\l  %14 = load i32, i32* %13, align 4, !tbaa !11\l  %15 = call i32 (i8*, ...) @printf(i8* noundef nonnull dereferenceable(1)\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), i32 noundef\l... %14) #11\l  %16 = load i32, i32* @ncol, align 4, !tbaa !11\l  %17 = zext i32 %16 to i64\l  %18 = icmp eq i64 %12, %17\l  br i1 %18, label %22, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x8707a0:s0 -> Node0x870840;
+	Node0x8707a0:s1 -> Node0x8707f0;
+	Node0x8707f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%19:\l19:                                               \l  %20 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !12\l  %21 = call i32 @putc(i32 noundef 44, %struct._IO_FILE* noundef %20) #11\l  br label %22\l}"];
+	Node0x8707f0 -> Node0x870840;
+	Node0x870840 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{%22:\l22:                                               \l  %23 = load i32, i32* @ncol, align 4, !tbaa !11\l  %24 = zext i32 %23 to i64\l  %25 = icmp eq i64 %12, %24\l  br i1 %25, label %26, label %10, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x870840:s0 -> Node0x870890;
+	Node0x870840:s1 -> Node0x8707a0;
+	Node0x870890 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%26:\l26:                                               \l  %27 = getelementptr inbounds %struct._play, %struct._play* %4, i64 0, i32 0\l  %28 = load i32, i32* %27, align 8, !tbaa !16\l  %29 = call i32 (i8*, ...) @printf(i8* noundef nonnull dereferenceable(1)\l... getelementptr inbounds ([14 x i8], [14 x i8]* @.str.3, i64 0, i64 0), i32\l... noundef %28)\l  %30 = call i32 @puts(i8* nonnull dereferenceable(1) getelementptr inbounds\l... ([19 x i8], [19 x i8]* @str.19, i64 0, i64 0))\l  %31 = getelementptr inbounds %struct._play, %struct._play* %4, i64 0, i32 2\l  %32 = load %struct._list*, %struct._list** %31, align 8, !tbaa !17\l  %33 = icmp eq %struct._list* %32, null\l  br i1 %33, label %63, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x870890:s0 -> Node0x870a70;
+	Node0x870890:s1 -> Node0x8708e0;
+	Node0x8708e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{%34:\l34:                                               \l  %35 = phi %struct._list* [ %61, %58 ], [ %32, %26 ]\l  %36 = getelementptr inbounds %struct._list, %struct._list* %35, i64 0, i32 0\l  %37 = load i32*, i32** %36, align 8, !tbaa !18\l  %38 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !12\l  %39 = call i32 @putc(i32 noundef 40, %struct._IO_FILE* noundef %38) #11\l  %40 = load i32, i32* @ncol, align 4, !tbaa !11\l  %41 = icmp eq i32 %40, 0\l  br i1 %41, label %58, label %42\l|{<s0>T|<s1>F}}"];
+	Node0x8708e0:s0 -> Node0x870a20;
+	Node0x8708e0:s1 -> Node0x870930;
+	Node0x870930 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%42:\l42:                                               \l  %43 = phi i64 [ %44, %54 ], [ 0, %34 ]\l  %44 = add nuw i64 %43, 1\l  %45 = getelementptr inbounds i32, i32* %37, i64 %43\l  %46 = load i32, i32* %45, align 4, !tbaa !11\l  %47 = call i32 (i8*, ...) @printf(i8* noundef nonnull dereferenceable(1)\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), i32 noundef\l... %46) #11\l  %48 = load i32, i32* @ncol, align 4, !tbaa !11\l  %49 = zext i32 %48 to i64\l  %50 = icmp eq i64 %44, %49\l  br i1 %50, label %54, label %51\l|{<s0>T|<s1>F}}"];
+	Node0x870930:s0 -> Node0x8709d0;
+	Node0x870930:s1 -> Node0x870980;
+	Node0x870980 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cc403a70",label="{%51:\l51:                                               \l  %52 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !12\l  %53 = call i32 @putc(i32 noundef 44, %struct._IO_FILE* noundef %52) #11\l  br label %54\l}"];
+	Node0x870980 -> Node0x8709d0;
+	Node0x8709d0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%54:\l54:                                               \l  %55 = load i32, i32* @ncol, align 4, !tbaa !11\l  %56 = zext i32 %55 to i64\l  %57 = icmp eq i64 %44, %56\l  br i1 %57, label %58, label %42, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x8709d0:s0 -> Node0x870a20;
+	Node0x8709d0:s1 -> Node0x870930;
+	Node0x870a20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6a38570",label="{%58:\l58:                                               \l  %59 = call i32 @puts(i8* nonnull dereferenceable(1) getelementptr inbounds\l... ([2 x i8], [2 x i8]* @str, i64 0, i64 0)) #11\l  %60 = getelementptr inbounds %struct._list, %struct._list* %35, i64 0, i32 1\l  %61 = load %struct._list*, %struct._list** %60, align 8, !tbaa !20\l  %62 = icmp eq %struct._list* %61, null\l  br i1 %62, label %63, label %34, !llvm.loop !21\l|{<s0>T|<s1>F}}"];
+	Node0x870a20:s0 -> Node0x870a70;
+	Node0x870a20:s1 -> Node0x8708e0;
+	Node0x870a70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%63:\l63:                                               \l  %64 = getelementptr inbounds %struct._play, %struct._play* %4, i64 0, i32 3\l  %65 = load %struct._play*, %struct._play** %64, align 8, !tbaa !22\l  %66 = icmp eq %struct._play* %65, null\l  br i1 %66, label %67, label %3, !llvm.loop !23\l|{<s0>T|<s1>F}}"];
+	Node0x870a70:s0 -> Node0x870ac0;
+	Node0x870a70:s1 -> Node0x870750;
+	Node0x870ac0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#7a9df870",label="{%67:\l67:                                               \l  ret void\l}"];
+}

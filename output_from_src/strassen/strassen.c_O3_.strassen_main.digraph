@@ -1,0 +1,5 @@
+digraph "CFG for 'strassen_main' function" {
+	label="CFG for 'strassen_main' function";
+
+	Node0xd0d0f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l  %5 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull dereferenceable(1)\l... getelementptr inbounds ([37 x i8], [37 x i8]* @.str.1, i64 0, i64 0), i32\l... noundef %3)\l  tail call void @OptimizedStrassenMultiply(double* noundef %2, double*\l... noundef %0, double* noundef %1, i32 noundef %3, i32 noundef %3, i32 noundef\l... %3, i32 noundef %3, i32 noundef 1)\l  %6 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr\l... inbounds ([12 x i8], [12 x i8]* @str.4, i64 0, i64 0))\l  ret void\l}"];
+}

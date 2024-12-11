@@ -1,0 +1,13 @@
+digraph "CFG for 'fib' function" {
+	label="CFG for 'fib' function";
+
+	Node0xaafb00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%1:\l  %2 = icmp slt i32 %0, 2\l  br i1 %2, label %13, label %3\l|{<s0>T|<s1>F}}"];
+	Node0xaafb00:s0 -> Node0xaafbf0;
+	Node0xaafb00:s1 -> Node0xaafb50;
+	Node0xaafb50 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l3:                                                \l  %4 = phi i32 [ %8, %3 ], [ %0, %1 ]\l  %5 = phi i32 [ %9, %3 ], [ 0, %1 ]\l  %6 = add nsw i32 %4, -2\l  %7 = tail call i32 @fib(i32 noundef %6)\l  %8 = add nsw i32 %4, -1\l  %9 = add nsw i32 %7, %5\l  %10 = icmp ult i32 %4, 3\l  br i1 %10, label %11, label %3\l|{<s0>T|<s1>F}}"];
+	Node0xaafb50:s0 -> Node0xaafba0;
+	Node0xaafb50:s1 -> Node0xaafb50;
+	Node0xaafba0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%11:\l11:                                               \l  %12 = add i32 %9, 1\l  br label %13\l}"];
+	Node0xaafba0 -> Node0xaafbf0;
+	Node0xaafbf0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dedcdb70",label="{%13:\l13:                                               \l  %14 = phi i32 [ 1, %1 ], [ %12, %11 ]\l  ret i32 %14\l}"];
+}

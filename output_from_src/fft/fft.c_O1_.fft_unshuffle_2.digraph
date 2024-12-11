@@ -1,0 +1,18 @@
+digraph "CFG for 'fft_unshuffle_2' function" {
+	label="CFG for 'fft_unshuffle_2' function";
+
+	Node0x1411ee0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%5:\l  %6 = sub nsw i32 %1, %0\l  %7 = icmp slt i32 %6, 128\l  br i1 %7, label %8, label %30\l|{<s0>T|<s1>F}}"];
+	Node0x1411ee0:s0 -> Node0x14043e0;
+	Node0x1411ee0:s1 -> Node0x14044d0;
+	Node0x14043e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%8:\l8:                                                \l  %9 = icmp sgt i32 %1, %0\l  br i1 %9, label %10, label %33\l|{<s0>T|<s1>F}}"];
+	Node0x14043e0:s0 -> Node0x1404430;
+	Node0x14043e0:s1 -> Node0x1404520;
+	Node0x1404430 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%10:\l10:                                               \l  %11 = shl nsw i32 %0, 1\l  %12 = sext i32 %11 to i64\l  %13 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %2, i64 %12\l  %14 = sext i32 %4 to i64\l  %15 = sext i32 %0 to i64\l  %16 = sext i32 %1 to i64\l  br label %17\l}"];
+	Node0x1404430 -> Node0x1404480;
+	Node0x1404480 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%17:\l17:                                               \l  %18 = phi i64 [ %15, %10 ], [ %28, %17 ]\l  %19 = phi %struct.COMPLEX* [ %13, %10 ], [ %27, %17 ]\l  %20 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %3, i64 %18\l  %21 = bitcast %struct.COMPLEX* %20 to i8*\l  %22 = bitcast %struct.COMPLEX* %19 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* noundef nonnull align 8\l... dereferenceable(16) %21, i8* noundef nonnull align 8 dereferenceable(16) %22,\l... i64 16, i1 false), !tbaa.struct !5\l  %23 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %20, i64 %14\l  %24 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %19, i64 1\l  %25 = bitcast %struct.COMPLEX* %23 to i8*\l  %26 = bitcast %struct.COMPLEX* %24 to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* noundef nonnull align 8\l... dereferenceable(16) %25, i8* noundef nonnull align 8 dereferenceable(16) %26,\l... i64 16, i1 false), !tbaa.struct !5\l  %27 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %19, i64 2\l  %28 = add nsw i64 %18, 1\l  %29 = icmp eq i64 %28, %16\l  br i1 %29, label %33, label %17, !llvm.loop !10\l|{<s0>T|<s1>F}}"];
+	Node0x1404480:s0 -> Node0x1404520;
+	Node0x1404480:s1 -> Node0x1404480;
+	Node0x14044d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%30:\l30:                                               \l  %31 = add nsw i32 %1, %0\l  %32 = sdiv i32 %31, 2\l  call void @fft_unshuffle_2(i32 noundef %0, i32 noundef %32, %struct.COMPLEX*\l... noundef %2, %struct.COMPLEX* noundef %3, i32 noundef %4)\l  call void @fft_unshuffle_2(i32 noundef %32, i32 noundef %1, %struct.COMPLEX*\l... noundef %2, %struct.COMPLEX* noundef %3, i32 noundef %4)\l  br label %33\l}"];
+	Node0x14044d0 -> Node0x1404520;
+	Node0x1404520 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%33:\l33:                                               \l  ret void\l}"];
+}

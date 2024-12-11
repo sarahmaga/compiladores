@@ -1,0 +1,20 @@
+digraph "CFG for 'show_list' function" {
+	label="CFG for 'show_list' function";
+
+	Node0x1a3a830 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%1:\l  %2 = icmp eq %struct._list* %0, null\l  br i1 %2, label %31, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x1a3a830:s0 -> Node0x1a31210;
+	Node0x1a3a830:s1 -> Node0x1a310d0;
+	Node0x1a310d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%3:\l3:                                                \l  %4 = phi %struct._list* [ %29, %26 ], [ %0, %1 ]\l  %5 = getelementptr inbounds %struct._list, %struct._list* %4, i64 0, i32 0\l  %6 = load i32*, i32** %5, align 8, !tbaa !5\l  %7 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !10\l  %8 = tail call i32 @putc(i32 noundef 40, %struct._IO_FILE* noundef %7) #11\l  %9 = load i32, i32* @ncol, align 4, !tbaa !11\l  %10 = icmp eq i32 %9, 0\l  br i1 %10, label %26, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x1a310d0:s0 -> Node0x1a311c0;
+	Node0x1a310d0:s1 -> Node0x1a31120;
+	Node0x1a31120 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%11:\l11:                                               \l  %12 = phi i64 [ %13, %20 ], [ 0, %3 ]\l  %13 = add nuw i64 %12, 1\l  %14 = getelementptr inbounds i32, i32* %6, i64 %12\l  %15 = load i32, i32* %14, align 4, !tbaa !11\l  %16 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull\l... dereferenceable(1) getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0,\l... i64 0), i32 noundef %15) #11\l  %17 = load i32, i32* @ncol, align 4, !tbaa !11\l  %18 = zext i32 %17 to i64\l  %19 = icmp eq i64 %13, %18\l  br i1 %19, label %26, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x1a31120:s0 -> Node0x1a311c0;
+	Node0x1a31120:s1 -> Node0x1a31170;
+	Node0x1a31170 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%20:\l20:                                               \l  %21 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !10\l  %22 = tail call i32 @putc(i32 noundef 44, %struct._IO_FILE* noundef %21) #11\l  %23 = load i32, i32* @ncol, align 4, !tbaa !11\l  %24 = zext i32 %23 to i64\l  %25 = icmp eq i64 %13, %24\l  br i1 %25, label %26, label %11, !llvm.loop !13\l|{<s0>T|<s1>F}}"];
+	Node0x1a31170:s0 -> Node0x1a311c0;
+	Node0x1a31170:s1 -> Node0x1a31120;
+	Node0x1a311c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%26:\l26:                                               \l  %27 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr\l... inbounds ([2 x i8], [2 x i8]* @str, i64 0, i64 0)) #11\l  %28 = getelementptr inbounds %struct._list, %struct._list* %4, i64 0, i32 1\l  %29 = load %struct._list*, %struct._list** %28, align 8, !tbaa !15\l  %30 = icmp eq %struct._list* %29, null\l  br i1 %30, label %31, label %3, !llvm.loop !16\l|{<s0>T|<s1>F}}"];
+	Node0x1a311c0:s0 -> Node0x1a31210;
+	Node0x1a311c0:s1 -> Node0x1a310d0;
+	Node0x1a31210 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#9abbff70",label="{%31:\l31:                                               \l  ret void\l}"];
+}

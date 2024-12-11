@@ -1,0 +1,18 @@
+digraph "CFG for 'fft_twiddle_gen1' function" {
+	label="CFG for 'fft_twiddle_gen1' function";
+
+	Node0x140aba0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%8:\l  %9 = icmp sgt i32 %3, 0\l  br i1 %9, label %10, label %53\l|{<s0>T|<s1>F}}"];
+	Node0x140aba0:s0 -> Node0x140ac30;
+	Node0x140aba0:s1 -> Node0x140ad70;
+	Node0x140ac30 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#88abfd70",label="{%10:\l10:                                               \l  %11 = sext i32 %4 to i64\l  %12 = sext i32 %4 to i64\l  br label %13\l}"];
+	Node0x140ac30 -> Node0x140ac80;
+	Node0x140ac80 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%13:\l13:                                               \l  %14 = phi i32 [ 0, %10 ], [ %50, %47 ]\l  %15 = phi %struct.COMPLEX* [ %1, %10 ], [ %51, %47 ]\l  %16 = mul nsw i32 %14, %7\l  %17 = add nsw i32 %16, %6\l  br label %18\l}"];
+	Node0x140ac80 -> Node0x140acd0;
+	Node0x140acd0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%18:\l18:                                               \l  %19 = phi i32 [ %43, %18 ], [ 0, %13 ]\l  %20 = phi i32 [ %44, %18 ], [ 0, %13 ]\l  %21 = phi %struct.COMPLEX* [ %45, %18 ], [ %0, %13 ]\l  %22 = phi double [ %36, %18 ], [ 0.000000e+00, %13 ]\l  %23 = phi double [ %39, %18 ], [ 0.000000e+00, %13 ]\l  %24 = sext i32 %19 to i64\l  %25 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %2, i64 %24,\l... i32 0\l  %26 = load double, double* %25, align 8, !tbaa !5\l  %27 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %2, i64 %24,\l... i32 1\l  %28 = load double, double* %27, align 8, !tbaa !10\l  %29 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %21, i64 0,\l... i32 0\l  %30 = load double, double* %29, align 8, !tbaa !5\l  %31 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %21, i64 0,\l... i32 1\l  %32 = load double, double* %31, align 8, !tbaa !10\l  %33 = fneg double %32\l  %34 = fmul double %28, %33\l  %35 = call double @llvm.fmuladd.f64(double %30, double %26, double %34)\l  %36 = fadd double %22, %35\l  %37 = fmul double %26, %32\l  %38 = call double @llvm.fmuladd.f64(double %30, double %28, double %37)\l  %39 = fadd double %23, %38\l  %40 = add nsw i32 %17, %19\l  %41 = icmp sgt i32 %40, %5\l  %42 = select i1 %41, i32 %5, i32 0\l  %43 = sub nsw i32 %40, %42\l  %44 = add nuw nsw i32 %20, 1\l  %45 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %21, i64 %11\l  %46 = icmp eq i32 %44, %3\l  br i1 %46, label %47, label %18, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x140acd0:s0 -> Node0x140ad20;
+	Node0x140acd0:s1 -> Node0x140acd0;
+	Node0x140ad20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f3c7b170",label="{%47:\l47:                                               \l  %48 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %15, i64 0,\l... i32 0\l  store double %36, double* %48, align 8, !tbaa !5\l  %49 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %15, i64 0,\l... i32 1\l  store double %39, double* %49, align 8, !tbaa !10\l  %50 = add nuw nsw i32 %14, 1\l  %51 = getelementptr inbounds %struct.COMPLEX, %struct.COMPLEX* %15, i64 %12\l  %52 = icmp eq i32 %50, %3\l  br i1 %52, label %53, label %13, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0x140ad20:s0 -> Node0x140ad70;
+	Node0x140ad20:s1 -> Node0x140ac80;
+	Node0x140ad70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#96b7ff70",label="{%53:\l53:                                               \l  ret void\l}"];
+}

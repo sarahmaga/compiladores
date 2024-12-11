@@ -1,0 +1,27 @@
+digraph "CFG for 'ok' function" {
+	label="CFG for 'ok' function";
+
+	Node0x2005980 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e0dbd870",label="{%2:\l  %3 = icmp sgt i32 %0, 0\l  br i1 %3, label %4, label %37\l|{<s0>T|<s1>F}}"];
+	Node0x2005980:s0 -> Node0x20059d0;
+	Node0x2005980:s1 -> Node0x2005c00;
+	Node0x20059d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#cbd8ee70",label="{%4:\l4:                                                \l  %5 = zext i32 %0 to i64\l  %6 = zext i32 %0 to i64\l  br label %10\l}"];
+	Node0x20059d0 -> Node0x2005a70;
+	Node0x2005a20 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e8d6cc70",label="{%7:\l7:                                                \l  %8 = add nuw nsw i64 %12, 1\l  %9 = icmp eq i64 %15, %6\l  br i1 %9, label %37, label %10, !llvm.loop !5\l|{<s0>T|<s1>F}}"];
+	Node0x2005a20:s0 -> Node0x2005c00;
+	Node0x2005a20:s1 -> Node0x2005a70;
+	Node0x2005a70 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f6bfa670",label="{%10:\l10:                                               \l  %11 = phi i64 [ 0, %4 ], [ %15, %7 ]\l  %12 = phi i64 [ 1, %4 ], [ %8, %7 ]\l  %13 = getelementptr inbounds i8, i8* %1, i64 %11\l  %14 = load i8, i8* %13, align 1, !tbaa !7\l  %15 = add nuw nsw i64 %11, 1\l  %16 = icmp ult i64 %15, %5\l  br i1 %16, label %17, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x2005a70:s0 -> Node0x2005ac0;
+	Node0x2005a70:s1 -> Node0x2005a20;
+	Node0x2005ac0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%17:\l17:                                               \l  %18 = sext i8 %14 to i32\l  %19 = trunc i64 %11 to i32\l  br label %22\l}"];
+	Node0x2005ac0 -> Node0x2005b60;
+	Node0x2005b10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%20:\l20:                                               \l  %21 = icmp eq i64 %36, %6\l  br i1 %21, label %7, label %22, !llvm.loop !10\l|{<s0>T|<s1>F}}"];
+	Node0x2005b10:s0 -> Node0x2005a20;
+	Node0x2005b10:s1 -> Node0x2005b60;
+	Node0x2005b60 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%22:\l22:                                               \l  %23 = phi i64 [ %12, %17 ], [ %36, %20 ]\l  %24 = getelementptr inbounds i8, i8* %1, i64 %23\l  %25 = load i8, i8* %24, align 1, !tbaa !7\l  %26 = sext i8 %25 to i32\l  %27 = icmp eq i8 %25, %14\l  br i1 %27, label %37, label %28\l|{<s0>T|<s1>F}}"];
+	Node0x2005b60:s0 -> Node0x2005c00;
+	Node0x2005b60:s1 -> Node0x2005bb0;
+	Node0x2005bb0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%28:\l28:                                               \l  %29 = trunc i64 %23 to i32\l  %30 = sub nsw i32 %29, %19\l  %31 = sub nsw i32 %18, %30\l  %32 = icmp eq i32 %31, %26\l  %33 = add nsw i32 %30, %18\l  %34 = icmp eq i32 %33, %26\l  %35 = select i1 %32, i1 true, i1 %34\l  %36 = add nuw nsw i64 %23, 1\l  br i1 %35, label %37, label %20\l|{<s0>T|<s1>F}}"];
+	Node0x2005bb0:s0 -> Node0x2005c00;
+	Node0x2005bb0:s1 -> Node0x2005b10;
+	Node0x2005c00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e0dbd870",label="{%37:\l37:                                               \l  %38 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %22 ], [ 1, %7 ]\l  ret i32 %38\l}"];
+}

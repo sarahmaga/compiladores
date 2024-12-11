@@ -1,0 +1,10 @@
+digraph "CFG for 'fibFP' function" {
+	label="CFG for 'fibFP' function";
+
+	Node0xab04f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = fcmp olt double %0, 2.000000e+00\l  br i1 %2, label %3, label %5\l|{<s0>T|<s1>F}}"];
+	Node0xab04f0:s0 -> Node0xab0540;
+	Node0xab04f0:s1 -> Node0xab0590;
+	Node0xab0540 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l3:                                                \l  %4 = phi double [ %10, %5 ], [ 1.000000e+00, %1 ]\l  ret double %4\l}"];
+	Node0xab0590 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%5:\l5:                                                \l  %6 = fadd double %0, -2.000000e+00\l  %7 = tail call double @fibFP(double noundef %6)\l  %8 = fadd double %0, -1.000000e+00\l  %9 = tail call double @fibFP(double noundef %8)\l  %10 = fadd double %7, %9\l  br label %3\l}"];
+	Node0xab0590 -> Node0xab0540;
+}

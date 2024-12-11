@@ -1,0 +1,38 @@
+digraph "CFG for 'get_good_move' function" {
+	label="CFG for 'get_good_move' function";
+
+	Node0x88d760 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#93b5fe70",label="{%1:\l  %2 = icmp eq %struct._list* %0, null\l  br i1 %2, label %60, label %3\l|{<s0>T|<s1>F}}"];
+	Node0x88d760:s0 -> Node0x881b40;
+	Node0x88d760:s1 -> Node0x881780;
+	Node0x881780 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#81a4fb70",label="{%3:\l3:                                                \l  %4 = load i32, i32* @ncol, align 4\l  %5 = sext i32 %4 to i64\l  br label %6\l}"];
+	Node0x881780 -> Node0x8817d0;
+	Node0x8817d0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d4dbe670",label="{%6:\l6:                                                \l  %7 = phi %struct._list* [ %9, %35 ], [ %0, %3 ]\l  %8 = getelementptr inbounds %struct._list, %struct._list* %7, i64 0, i32 1\l  %9 = load %struct._list*, %struct._list** %8, align 8, !tbaa !5\l  %10 = icmp eq %struct._list* %9, null\l  br i1 %10, label %39, label %11\l|{<s0>T|<s1>F}}"];
+	Node0x8817d0:s0 -> Node0x881a50;
+	Node0x8817d0:s1 -> Node0x881820;
+	Node0x881820 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%11:\l11:                                               \l  %12 = getelementptr inbounds %struct._list, %struct._list* %7, i64 0, i32 0\l  %13 = load i32*, i32** %12, align 8, !tbaa !10\l  br label %14\l}"];
+	Node0x881820 -> Node0x881870;
+	Node0x881870 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4987a70",label="{%14:\l14:                                               \l  %15 = phi %struct._play** [ @game_tree, %11 ], [ %34, %31 ]\l  %16 = load %struct._play*, %struct._play** %15, align 8, !tbaa !11\l  %17 = getelementptr inbounds %struct._play, %struct._play* %16, i64 0, i32 1\l  %18 = load i32*, i32** %17, align 8, !tbaa !12\l  br label %19\l}"];
+	Node0x881870 -> Node0x8818c0;
+	Node0x8818c0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = phi i64 [ %21, %23 ], [ %5, %14 ]\l  %21 = add nsw i64 %20, -1\l  %22 = icmp eq i64 %20, 0\l  br i1 %22, label %31, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x8818c0:s0 -> Node0x8819b0;
+	Node0x8818c0:s1 -> Node0x881910;
+	Node0x881910 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%23:\l23:                                               \l  %24 = getelementptr inbounds i32, i32* %18, i64 %21\l  %25 = load i32, i32* %24, align 4, !tbaa !15\l  %26 = getelementptr inbounds i32, i32* %13, i64 %21\l  %27 = load i32, i32* %26, align 4, !tbaa !15\l  %28 = icmp eq i32 %25, %27\l  br i1 %28, label %19, label %29, !llvm.loop !16\l|{<s0>T|<s1>F}}"];
+	Node0x881910:s0 -> Node0x8818c0;
+	Node0x881910:s1 -> Node0x881960;
+	Node0x881960 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7af9170",label="{%29:\l29:                                               \l  %30 = trunc i64 %20 to i32\l  br label %31\l}"];
+	Node0x881960 -> Node0x8819b0;
+	Node0x8819b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f4987a70",label="{%31:\l31:                                               \l  %32 = phi i32 [ %30, %29 ], [ 0, %19 ]\l  %33 = icmp sgt i32 %32, 0\l  %34 = getelementptr inbounds %struct._play, %struct._play* %16, i64 0, i32 3\l  br i1 %33, label %14, label %35, !llvm.loop !19\l|{<s0>T|<s1>F}}"];
+	Node0x8819b0:s0 -> Node0x881870;
+	Node0x8819b0:s1 -> Node0x881a00;
+	Node0x881a00 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d1dae970",label="{%35:\l35:                                               \l  %36 = getelementptr inbounds %struct._play, %struct._play* %16, i64 0, i32 0\l  %37 = load i32, i32* %36, align 8, !tbaa !20\l  %38 = icmp eq i32 %37, 0\l  br i1 %38, label %39, label %6, !llvm.loop !21\l|{<s0>T|<s1>F}}"];
+	Node0x881a00:s0 -> Node0x881a50;
+	Node0x881a00:s1 -> Node0x8817d0;
+	Node0x881a50 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#81a4fb70",label="{%39:\l39:                                               \l  %40 = getelementptr inbounds %struct._list, %struct._list* %7, i64 0, i32 0\l  %41 = load i32*, i32** %40, align 8, !tbaa !10\l  %42 = load i32, i32* @ncol, align 4, !tbaa !15\l  %43 = sext i32 %42 to i64\l  %44 = shl nsw i64 %43, 2\l  %45 = call noalias i8* @malloc(i64 noundef %44) #11\l  %46 = icmp eq i32 %42, 0\l  br i1 %46, label %58, label %47\l|{<s0>T|<s1>F}}"];
+	Node0x881a50:s0 -> Node0x881af0;
+	Node0x881a50:s1 -> Node0x881aa0;
+	Node0x881aa0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#779af770",label="{%47:\l47:                                               \l  %48 = add i32 %42, -1\l  %49 = sext i32 %48 to i64\l  %50 = zext i32 %48 to i64\l  %51 = sub nsw i64 %49, %50\l  %52 = shl nsw i64 %51, 2\l  %53 = getelementptr i8, i8* %45, i64 %52\l  %54 = getelementptr i32, i32* %41, i64 %51\l  %55 = bitcast i32* %54 to i8*\l  %56 = zext i32 %42 to i64\l  %57 = shl nuw nsw i64 %56, 2\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %53, i8* align 4 %55, i64\l... %57, i1 false) #11, !tbaa !15\l  br label %58\l}"];
+	Node0x881aa0 -> Node0x881af0;
+	Node0x881af0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#81a4fb70",label="{%58:\l58:                                               \l  %59 = bitcast i8* %45 to i32*\l  br label %60\l}"];
+	Node0x881af0 -> Node0x881b40;
+	Node0x881b40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#93b5fe70",label="{%60:\l60:                                               \l  %61 = phi i32* [ %59, %58 ], [ null, %1 ]\l  ret i32* %61\l}"];
+}

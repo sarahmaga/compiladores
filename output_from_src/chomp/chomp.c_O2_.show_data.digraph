@@ -1,0 +1,16 @@
+digraph "CFG for 'show_data' function" {
+	label="CFG for 'show_data' function";
+
+	Node0x9669a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%1:\l  %2 = load i32, i32* @ncol, align 4, !tbaa !5\l  %3 = icmp eq i32 %2, 0\l  br i1 %3, label %21, label %4\l|{<s0>T|<s1>F}}"];
+	Node0x9669a0:s0 -> Node0x966ae0;
+	Node0x9669a0:s1 -> Node0x9669f0;
+	Node0x9669f0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%4:\l4:                                                \l  %5 = phi i64 [ %6, %18 ], [ 0, %1 ]\l  %6 = add nuw i64 %5, 1\l  %7 = getelementptr inbounds i32, i32* %0, i64 %5\l  %8 = load i32, i32* %7, align 4, !tbaa !5\l  %9 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull dereferenceable(1)\l... getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), i32 noundef\l... %8)\l  %10 = load i32, i32* @ncol, align 4, !tbaa !5\l  %11 = zext i32 %10 to i64\l  %12 = icmp eq i64 %6, %11\l  br i1 %12, label %18, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x9669f0:s0 -> Node0x966a90;
+	Node0x9669f0:s1 -> Node0x966a40;
+	Node0x966a40 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e36c5570",label="{%13:\l13:                                               \l  %14 = load %struct._IO_FILE*, %struct._IO_FILE** @stdout, align 8, !tbaa !9\l  %15 = tail call i32 @putc(i32 noundef 44, %struct._IO_FILE* noundef %14) #11\l  %16 = load i32, i32* @ncol, align 4, !tbaa !5\l  %17 = zext i32 %16 to i64\l  br label %18\l}"];
+	Node0x966a40 -> Node0x966a90;
+	Node0x966a90 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%18:\l18:                                               \l  %19 = phi i64 [ %17, %13 ], [ %11, %4 ]\l  %20 = icmp eq i64 %6, %19\l  br i1 %20, label %21, label %4, !llvm.loop !11\l|{<s0>T|<s1>F}}"];
+	Node0x966a90:s0 -> Node0x966ae0;
+	Node0x966a90:s1 -> Node0x9669f0;
+	Node0x966ae0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#c5d6f270",label="{%21:\l21:                                               \l  ret void\l}"];
+}

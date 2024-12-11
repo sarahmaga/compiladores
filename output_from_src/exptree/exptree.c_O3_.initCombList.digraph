@@ -1,0 +1,22 @@
+digraph "CFG for 'initCombList' function" {
+	label="CFG for 'initCombList' function";
+
+	Node0x1484b60 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%2:\l  %3 = icmp sgt i32 %1, 0\l  br i1 %3, label %4, label %34\l|{<s0>T|<s1>F}}"];
+	Node0x1484b60:s0 -> Node0x14850f0;
+	Node0x1484b60:s1 -> Node0x1485280;
+	Node0x14850f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%4:\l4:                                                \l  %5 = zext i32 %1 to i64\l  %6 = add nsw i64 %5, -1\l  %7 = and i64 %5, 3\l  %8 = icmp ult i64 %6, 3\l  br i1 %8, label %24, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x14850f0:s0 -> Node0x14851e0;
+	Node0x14850f0:s1 -> Node0x1485140;
+	Node0x1485140 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b5cdfa70",label="{%9:\l9:                                                \l  %10 = and i64 %5, 4294967292\l  br label %11\l}"];
+	Node0x1485140 -> Node0x1485190;
+	Node0x1485190 [shape=record,color="#b70d28ff", style=filled, fillcolor="#c5333470",label="{%11:\l11:                                               \l  %12 = phi i64 [ 0, %9 ], [ %21, %11 ]\l  %13 = phi i64 [ 0, %9 ], [ %22, %11 ]\l  %14 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %12, i32 2\l  store i32 0, i32* %14, align 4, !tbaa !5\l  %15 = or i64 %12, 1\l  %16 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %15, i32 2\l  store i32 0, i32* %16, align 4, !tbaa !5\l  %17 = or i64 %12, 2\l  %18 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %17, i32 2\l  store i32 0, i32* %18, align 4, !tbaa !5\l  %19 = or i64 %12, 3\l  %20 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %19, i32 2\l  store i32 0, i32* %20, align 4, !tbaa !5\l  %21 = add nuw nsw i64 %12, 4\l  %22 = add i64 %13, 4\l  %23 = icmp eq i64 %22, %10\l  br i1 %23, label %24, label %11, !llvm.loop !10\l|{<s0>T|<s1>F}}"];
+	Node0x1485190:s0 -> Node0x14851e0;
+	Node0x1485190:s1 -> Node0x1485190;
+	Node0x14851e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#d9dce170",label="{%24:\l24:                                               \l  %25 = phi i64 [ 0, %4 ], [ %21, %11 ]\l  %26 = icmp eq i64 %7, 0\l  br i1 %26, label %34, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x14851e0:s0 -> Node0x1485280;
+	Node0x14851e0:s1 -> Node0x1485230;
+	Node0x1485230 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%27:\l27:                                               \l  %28 = phi i64 [ %31, %27 ], [ %25, %24 ]\l  %29 = phi i64 [ %32, %27 ], [ 0, %24 ]\l  %30 = getelementptr inbounds %struct.Comb, %struct.Comb* %0, i64 %28, i32 2\l  store i32 0, i32* %30, align 4, !tbaa !5\l  %31 = add nuw nsw i64 %28, 1\l  %32 = add i64 %29, 1\l  %33 = icmp eq i64 %32, %7\l  br i1 %33, label %34, label %27, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x1485230:s0 -> Node0x1485280;
+	Node0x1485230:s1 -> Node0x1485230;
+	Node0x1485280 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#ead5c970",label="{%34:\l34:                                               \l  ret void\l}"];
+}

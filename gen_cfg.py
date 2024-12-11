@@ -18,7 +18,7 @@ def generate_cfgs_for_optimization_levels(source_file, target):
         llvm_file = f"{output_dir}/{os.path.basename(source_file)}_{opt_level}.bc"
         print('llvm_file',llvm_file)
         try:
-            subprocess.run(["clang", f"-{opt_level}", "-emit-llvm", "-c", source_file, "-o", llvm_file], check=True)
+            subprocess.run(["clang-14", f"-{opt_level}", "-emit-llvm", "-c", source_file, "-o", llvm_file], check=True)
             print("clang "+ f"-{opt_level}"+ " -emit-llvm "+ "-c "+ source_file+"-o "+ llvm_file)
             print(f"Bytecode LLVM gerado: {llvm_file}")
         except subprocess.CalledProcessError:
@@ -28,7 +28,8 @@ def generate_cfgs_for_optimization_levels(source_file, target):
         # Gerar os arquivos .dot representando o CFG para cada função
         try:
             print(f"Gerando CFG para {llvm_file}")
-            subprocess.run(["opt", "-dot-cfg", llvm_file, "-o", "/dev/null"], check=True)
+            print('opt-14', "-dot-cfg", llvm_file, "-o", "/dev/null")
+            subprocess.run(["opt-14", "-dot-cfg", llvm_file, "-o", "/dev/null"], check=True)
             
             # Renomear todos os arquivos .dot gerados para o diretório de saída
             for dot_file in glob.glob(".*.dot"):

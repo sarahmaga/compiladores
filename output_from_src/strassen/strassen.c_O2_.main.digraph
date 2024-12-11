@@ -1,0 +1,30 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x20b03c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%2:\l  %3 = getelementptr inbounds i8*, i8** %1, i64 1\l  %4 = load i8*, i8** %3, align 8, !tbaa !5\l  %5 = tail call i64 @strtol(i8* nocapture noundef nonnull %4, i8** noundef\l... null, i32 noundef 10) #12\l  %6 = trunc i64 %5 to i32\l  %7 = tail call i32 @llvm.ctpop.i32(i32 %6), !range !9\l  %8 = icmp ult i32 %7, 2\l  %9 = and i32 %6, 15\l  %10 = icmp eq i32 %9, 0\l  %11 = and i1 %8, %10\l  br i1 %11, label %14, label %12\l|{<s0>T|<s1>F}}"];
+	Node0x20b03c0:s0 -> Node0x20b0460;
+	Node0x20b03c0:s1 -> Node0x20b0410;
+	Node0x20b0410 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#5977e370",label="{%12:\l12:                                               \l  %13 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull\l... dereferenceable(1) getelementptr inbounds ([67 x i8], [67 x i8]* @.str.3, i64\l... 0, i64 0), i32 noundef %6, i32 noundef 16)\l  tail call void @exit(i32 noundef 1) #13\l  unreachable\l}"];
+	Node0x20b0460 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%14:\l14:                                               \l  %15 = shl i64 %5, 3\l  %16 = mul i64 %15, %5\l  %17 = and i64 %16, 34359738360\l  %18 = tail call noalias i8* @malloc(i64 noundef %17) #12\l  %19 = bitcast i8* %18 to double*\l  %20 = tail call noalias i8* @malloc(i64 noundef %17) #12\l  %21 = bitcast i8* %20 to double*\l  %22 = tail call noalias i8* @malloc(i64 noundef %17) #12\l  %23 = icmp sgt i32 %6, 0\l  br i1 %23, label %24, label %56\l|{<s0>T|<s1>F}}"];
+	Node0x20b0460:s0 -> Node0x20b04b0;
+	Node0x20b0460:s1 -> Node0x20b06e0;
+	Node0x20b04b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b39670",label="{%24:\l24:                                               \l  %25 = and i64 %5, 4294967295\l  br label %26\l}"];
+	Node0x20b04b0 -> Node0x20b0500;
+	Node0x20b0500 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{%26:\l26:                                               \l  %27 = phi i64 [ 0, %24 ], [ %39, %38 ]\l  %28 = mul nuw nsw i64 %27, %25\l  br label %29\l}"];
+	Node0x20b0500 -> Node0x20b0550;
+	Node0x20b0550 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%29:\l29:                                               \l  %30 = phi i64 [ 0, %26 ], [ %36, %29 ]\l  %31 = tail call i32 @rand() #12\l  %32 = sitofp i32 %31 to double\l  %33 = fdiv double %32, 0x41DFFFFFFFC00000\l  %34 = add nuw nsw i64 %30, %28\l  %35 = getelementptr inbounds double, double* %19, i64 %34\l  store double %33, double* %35, align 8, !tbaa !10\l  %36 = add nuw nsw i64 %30, 1\l  %37 = icmp eq i64 %36, %25\l  br i1 %37, label %38, label %29, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x20b0550:s0 -> Node0x20b05a0;
+	Node0x20b0550:s1 -> Node0x20b0550;
+	Node0x20b05a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{%38:\l38:                                               \l  %39 = add nuw nsw i64 %27, 1\l  %40 = icmp eq i64 %39, %25\l  br i1 %40, label %41, label %26, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0x20b05a0:s0 -> Node0x20b05f0;
+	Node0x20b05a0:s1 -> Node0x20b0500;
+	Node0x20b05f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{%41:\l41:                                               \l  %42 = phi i64 [ %54, %53 ], [ 0, %38 ]\l  %43 = mul nuw nsw i64 %42, %25\l  br label %44\l}"];
+	Node0x20b05f0 -> Node0x20b0640;
+	Node0x20b0640 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%44:\l44:                                               \l  %45 = phi i64 [ 0, %41 ], [ %51, %44 ]\l  %46 = tail call i32 @rand() #12\l  %47 = sitofp i32 %46 to double\l  %48 = fdiv double %47, 0x41DFFFFFFFC00000\l  %49 = add nuw nsw i64 %45, %43\l  %50 = getelementptr inbounds double, double* %21, i64 %49\l  store double %48, double* %50, align 8, !tbaa !10\l  %51 = add nuw nsw i64 %45, 1\l  %52 = icmp eq i64 %51, %25\l  br i1 %52, label %53, label %44, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x20b0640:s0 -> Node0x20b0690;
+	Node0x20b0640:s1 -> Node0x20b0640;
+	Node0x20b0690 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#e5705870",label="{%53:\l53:                                               \l  %54 = add nuw nsw i64 %42, 1\l  %55 = icmp eq i64 %54, %25\l  br i1 %55, label %56, label %41, !llvm.loop !14\l|{<s0>T|<s1>F}}"];
+	Node0x20b0690:s0 -> Node0x20b06e0;
+	Node0x20b0690:s1 -> Node0x20b05f0;
+	Node0x20b06e0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7ac8e70",label="{%56:\l56:                                               \l  %57 = bitcast i8* %22 to double*\l  %58 = tail call i32 (i8*, ...) @printf(i8* noundef nonnull\l... dereferenceable(1) getelementptr inbounds ([37 x i8], [37 x i8]* @.str.1, i64\l... 0, i64 0), i32 noundef %6) #12\l  tail call void @OptimizedStrassenMultiply(double* noundef %21, double*\l... noundef %57, double* noundef %19, i32 noundef %6, i32 noundef %6, i32 noundef\l... %6, i32 noundef %6, i32 noundef 1) #12\l  %59 = tail call i32 @puts(i8* nonnull dereferenceable(1) getelementptr\l... inbounds ([12 x i8], [12 x i8]* @str.4, i64 0, i64 0)) #12\l  tail call void @free(i8* noundef %18) #12\l  tail call void @free(i8* noundef %20) #12\l  tail call void @free(i8* noundef %22) #12\l  ret i32 0\l}"];
+}

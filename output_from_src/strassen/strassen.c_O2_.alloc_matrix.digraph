@@ -1,0 +1,5 @@
+digraph "CFG for 'alloc_matrix' function" {
+	label="CFG for 'alloc_matrix' function";
+
+	Node0x20a0740 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = mul nsw i32 %0, %0\l  %3 = zext i32 %2 to i64\l  %4 = shl nuw nsw i64 %3, 3\l  %5 = tail call noalias i8* @malloc(i64 noundef %4) #12\l  %6 = bitcast i8* %5 to double*\l  ret double* %6\l}"];
+}

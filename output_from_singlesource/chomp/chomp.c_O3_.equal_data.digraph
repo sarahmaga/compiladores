@@ -1,0 +1,15 @@
+digraph "CFG for 'equal_data' function" {
+	label="CFG for 'equal_data' function";
+
+	Node0x1a33fc0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%2:\l  %3 = load i32, i32* @ncol, align 4, !tbaa !5\l  %4 = sext i32 %3 to i64\l  br label %5\l}"];
+	Node0x1a33fc0 -> Node0x1a34010;
+	Node0x1a34010 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%5:\l5:                                                \l  %6 = phi i64 [ %7, %9 ], [ %4, %2 ]\l  %7 = add nsw i64 %6, -1\l  %8 = icmp eq i64 %6, 0\l  br i1 %8, label %19, label %9\l|{<s0>T|<s1>F}}"];
+	Node0x1a34010:s0 -> Node0x1a34100;
+	Node0x1a34010:s1 -> Node0x1a34060;
+	Node0x1a34060 [shape=record,color="#b70d28ff", style=filled, fillcolor="#bb1b2c70",label="{%9:\l9:                                                \l  %10 = getelementptr inbounds i32, i32* %0, i64 %7\l  %11 = load i32, i32* %10, align 4, !tbaa !5\l  %12 = getelementptr inbounds i32, i32* %1, i64 %7\l  %13 = load i32, i32* %12, align 4, !tbaa !5\l  %14 = icmp eq i32 %11, %13\l  br i1 %14, label %5, label %15, !llvm.loop !9\l|{<s0>T|<s1>F}}"];
+	Node0x1a34060:s0 -> Node0x1a34010;
+	Node0x1a34060:s1 -> Node0x1a340b0;
+	Node0x1a340b0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#b9d0f970",label="{%15:\l15:                                               \l  %16 = trunc i64 %6 to i32\l  %17 = icmp slt i32 %16, 1\l  %18 = zext i1 %17 to i32\l  br label %19\l}"];
+	Node0x1a340b0 -> Node0x1a34100;
+	Node0x1a34100 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#dbdcde70",label="{%19:\l19:                                               \l  %20 = phi i32 [ %18, %15 ], [ 1, %5 ]\l  ret i32 %20\l}"];
+}

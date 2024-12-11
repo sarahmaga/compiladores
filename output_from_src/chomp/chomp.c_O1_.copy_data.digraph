@@ -1,0 +1,10 @@
+digraph "CFG for 'copy_data' function" {
+	label="CFG for 'copy_data' function";
+
+	Node0x1b7a6a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%1:\l  %2 = load i32, i32* @ncol, align 4, !tbaa !5\l  %3 = sext i32 %2 to i64\l  %4 = shl nsw i64 %3, 2\l  %5 = call noalias i8* @malloc(i64 noundef %4) #11\l  %6 = icmp eq i32 %2, 0\l  br i1 %6, label %19, label %7\l|{<s0>T|<s1>F}}"];
+	Node0x1b7a6a0:s0 -> Node0x1b8c2a0;
+	Node0x1b7a6a0:s1 -> Node0x1b8c250;
+	Node0x1b8c250 [shape=record,color="#b70d28ff", style=filled, fillcolor="#e8765c70",label="{%7:\l7:                                                \l  %8 = add i32 %2, -1\l  %9 = sext i32 %8 to i64\l  %10 = zext i32 %8 to i64\l  %11 = sub nsw i64 %9, %10\l  %12 = shl nsw i64 %11, 2\l  %13 = getelementptr i8, i8* %5, i64 %12\l  %14 = sub nsw i64 %9, %10\l  %15 = getelementptr i32, i32* %0, i64 %14\l  %16 = bitcast i32* %15 to i8*\l  %17 = zext i32 %2 to i64\l  %18 = shl nuw nsw i64 %17, 2\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %13, i8* align 4 %16, i64\l... %18, i1 false), !tbaa !5\l  br label %19\l}"];
+	Node0x1b8c250 -> Node0x1b8c2a0;
+	Node0x1b8c2a0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%19:\l19:                                               \l  %20 = bitcast i8* %5 to i32*\l  ret i32* %20\l}"];
+}

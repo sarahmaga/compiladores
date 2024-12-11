@@ -1,0 +1,22 @@
+digraph "CFG for 'where' function" {
+	label="CFG for 'where' function";
+
+	Node0x8953c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#8fb1fe70",label="{%2:\l  %3 = load i32, i32* @ncol, align 4, !tbaa !5\l  %4 = sext i32 %3 to i64\l  br label %5\l}"];
+	Node0x8953c0 -> Node0x895410;
+	Node0x895410 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%5:\l5:                                                \l  %6 = phi %struct._play* [ %1, %2 ], [ %26, %24 ]\l  %7 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 1\l  %8 = load i32*, i32** %7, align 8, !tbaa !9\l  br label %9\l}"];
+	Node0x895410 -> Node0x895460;
+	Node0x895460 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%9:\l9:                                                \l  %10 = phi i64 [ %11, %13 ], [ %4, %5 ]\l  %11 = add nsw i64 %10, -1\l  %12 = icmp eq i64 %10, 0\l  br i1 %12, label %21, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x895460:s0 -> Node0x895550;
+	Node0x895460:s1 -> Node0x8954b0;
+	Node0x8954b0 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = getelementptr inbounds i32, i32* %8, i64 %11\l  %15 = load i32, i32* %14, align 4, !tbaa !5\l  %16 = getelementptr inbounds i32, i32* %0, i64 %11\l  %17 = load i32, i32* %16, align 4, !tbaa !5\l  %18 = icmp eq i32 %15, %17\l  br i1 %18, label %9, label %19, !llvm.loop !12\l|{<s0>T|<s1>F}}"];
+	Node0x8954b0:s0 -> Node0x895460;
+	Node0x8954b0:s1 -> Node0x895500;
+	Node0x895500 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#eed0c070",label="{%19:\l19:                                               \l  %20 = trunc i64 %10 to i32\l  br label %21\l}"];
+	Node0x895500 -> Node0x895550;
+	Node0x895550 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7b99e70",label="{%21:\l21:                                               \l  %22 = phi i32 [ %20, %19 ], [ 0, %9 ]\l  %23 = icmp sgt i32 %22, 0\l  br i1 %23, label %24, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x895550:s0 -> Node0x8955a0;
+	Node0x895550:s1 -> Node0x8955f0;
+	Node0x8955a0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f7bca170",label="{%24:\l24:                                               \l  %25 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 3\l  %26 = load %struct._play*, %struct._play** %25, align 8, !tbaa !15\l  br label %5, !llvm.loop !16\l}"];
+	Node0x8955a0 -> Node0x895410;
+	Node0x8955f0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#8fb1fe70",label="{%27:\l27:                                               \l  %28 = getelementptr inbounds %struct._play, %struct._play* %6, i64 0, i32 2\l  %29 = load %struct._list*, %struct._list** %28, align 8, !tbaa !17\l  ret %struct._list* %29\l}"];
+}

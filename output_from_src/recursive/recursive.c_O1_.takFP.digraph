@@ -1,0 +1,10 @@
+digraph "CFG for 'takFP' function" {
+	label="CFG for 'takFP' function";
+
+	Node0x1a4c970 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%3:\l  %4 = fcmp olt double %1, %0\l  br i1 %4, label %5, label %13\l|{<s0>T|<s1>F}}"];
+	Node0x1a4c970:s0 -> Node0x1a4c9c0;
+	Node0x1a4c970:s1 -> Node0x1a4ca10;
+	Node0x1a4c9c0 [shape=record,color="#3d50c3ff", style=filled, fillcolor="#f59c7d70",label="{%5:\l5:                                                \l  %6 = fadd double %0, -1.000000e+00\l  %7 = call double @takFP(double noundef %6, double noundef %1, double noundef\l... %2)\l  %8 = fadd double %1, -1.000000e+00\l  %9 = call double @takFP(double noundef %8, double noundef %2, double noundef\l... %0)\l  %10 = fadd double %2, -1.000000e+00\l  %11 = call double @takFP(double noundef %10, double noundef %0, double\l... noundef %1)\l  %12 = call double @takFP(double noundef %7, double noundef %9, double\l... noundef %11)\l  br label %13\l}"];
+	Node0x1a4c9c0 -> Node0x1a4ca10;
+	Node0x1a4ca10 [shape=record,color="#b70d28ff", style=filled, fillcolor="#b70d2870",label="{%13:\l13:                                               \l  %14 = phi double [ %12, %5 ], [ %2, %3 ]\l  ret double %14\l}"];
+}
